@@ -4,6 +4,7 @@ init:
   - git config --global core.autocrlf input
   
 build_script:
-  - build-tools\7zip\x64\7zip
+  - dir
+  - build-tools\7zip\x64\7za
   - build-tools\aria2\aria2c -v
   - build-tools\innosetup\iscc -v
