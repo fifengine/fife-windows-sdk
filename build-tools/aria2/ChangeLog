@@ -1,0 +1,23 @@
+commit 561d49d6e530eb4ea4499f5bd7ce80416ff79738 (HEAD, tag: release-1.27.1, origin/master, origin/HEAD, master)
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2016-09-17
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2016-09-17
+
+    Bump up version number to 1.27.1
+
+commit 812136dd8b568bfe797744bcfcd496aaa2e1b714
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2016-09-17
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2016-09-17
+
+    Update NEWS
+
+commit cfaec39be1ae9ac2c9b6a02470791b46ef15d934
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2016-09-17
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2016-09-17
+
+    Add missing libssl_compat.h to SRCS

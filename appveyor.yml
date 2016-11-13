@@ -1,0 +1,9 @@
+# scripts that are called at very beginning, before repo cloning
+init:
+  - date /T & time /T
+  - git config --global core.autocrlf input
+  
+build_script:
+  - build-tools\7zip\x64\7zip
+  - build-tools\aria2\aria2c -v
+  - build-tools\innosetup\iscc -v
