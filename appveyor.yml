@@ -1,10 +1,16 @@
+# version format
+version: 0.0.{build}
+
 # scripts that are called at very beginning, before repo cloning
 init:
   - date /T & time /T
   - git config --global core.autocrlf input
-  
-build_script:
+
+before_build: 
   - dir
-  - build-tools\7zip\x64\7za
-  - build-tools\aria2\aria2c -v
-  - build-tools\innosetup\iscc -v
+  #- build-tools\7zip\x64\7za
+  #- build-tools\aria2\aria2c -v
+  #- build-tools\innosetup\iscc -v 
+
+build_script:
+  - build-tools\innosetup\iscc /DAPP_VERSION=%APPVEYOR_BUILD_VERSION% installer\fife-sdk.iss
