@@ -59,6 +59,10 @@ LZMANumBlockThreads=2
 InternalCompressLevel=max
 SolidCompression=true
 
+; style
+WizardImageFile=images\WizardImage.bmp
+WizardSmallImageFile=images\WizardSmallImage.bmp
+
 ; this creates the installer executable in the build folder
 ; for example: "_build\FifeSDK-0.4.0-Setup-VC14-x86.exe"
 OutputBaseFilename={#APP_NAME}-{#APP_VERSION}-Setup-{#APP_COMPILER}-x86
