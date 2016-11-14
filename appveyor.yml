@@ -6,11 +6,16 @@ init:
   - date /T & time /T
   - git config --global core.autocrlf input
 
-before_build: 
-  - dir
+#before_build: 
+  #- dir
   #- build-tools\7zip\x64\7za
   #- build-tools\aria2\aria2c -v
   #- build-tools\innosetup\iscc -v 
 
 build_script:
   - build-tools\innosetup\iscc /DAPP_VERSION=%APPVEYOR_BUILD_VERSION% installer\fife-sdk.iss
+
+after_build:
+  - dir C:\projects\_build /s
+  - appveyor PushArtifact "%APPVEYOR_BUILD_FOLDER%\_build\FifeSDK-%APPVEYOR_BUILD_VERSION%-Setup-VC14-x86.exe"
+
