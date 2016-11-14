@@ -20,7 +20,10 @@
 ; |                                                                      |
 ; +---------------------------------------------------------------------<3
 
+; version is set here, when the version isn't passed to the compiler on invocation
+#ifndef APP_VERSION
 #define APP_VERSION          "0.0.1"
+#endif
 
 #define APP_NAME             "FifeSDK"
 #define APP_COMPILER         "VC14"
