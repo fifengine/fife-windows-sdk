@@ -1,0 +1,19 @@
+#
+# Flexible Isometric Free Engine
+#
+# This is a download description file for the download tool Aria2c.
+#
+# Files to download are defined by URL.
+# The download folder is set by `dir`.
+# The filename is set by `out`.
+#
+
+# Fifengine Dependencies (libfife-dependencies)
+https://ci.appveyor.com/api/buildjobs/u9kltpny74p2gulf/artifacts/libfife-dependencies-dev-dbb9631-VC14.zip
+    dir=downloads
+    out=libfife-dependencies.zip
+
+# Fifengine - Python Installer
+https://ci.appveyor.com/api/buildjobs/u9kltpny74p2gulf/artifacts/libfife-dev-dbb9631.win32-py2.7.exe
+    dir=downloads
+    out=libfife.win32-py2.7.exe
