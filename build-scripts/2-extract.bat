@@ -1,5 +1,9 @@
 @echo off
 
+echo.
+echo == Extract
+echo.
+
 set ZIP="..\build-tools\7zip\x64\7za.exe"
 set TARGET_DIR="..\extracted"
 
@@ -10,9 +14,8 @@ rem dir
 if not exist %TARGET_DIR% (mkdir %TARGET_DIR%)
 
 echo.
-echo Extracting files into the folder %TARGET_DIR%
-
-:: Extract - Build Tools
+echo ### Extracting Build Tools into the folder %TARGET_DIR%
+echo.
 
 echo.
 echo CMake
@@ -34,6 +37,8 @@ rem echo TDM-GCC-MINGW
 rem %ZIP% x tdm-gcc.7z -o%TARGET_DIR% > nul
 rem move "%TARGET_DIR%\tdm-gcc-*" "%TARGET_DIR%\mingw"
 
-:: Extract - Dependencies of Fifengine
+echo.
+echo ### Extracting Dependencies of Fifengine into the folder %TARGET_DIR%
+echo.
 
 popd
