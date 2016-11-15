@@ -100,6 +100,10 @@ Name: swig;            Description: "[build tools] SWIG - interface generator"; 
 [Files]
 Source: "..\repackage\cmake\*";     DestDir: "{app}\cmake";         Flags: recursesubdirs; Components: cmake
 Source: "..\repackage\swig\*";      DestDir: "{app}\swig";          Flags: recursesubdirs; Components: swig
+; include Python from Appveyor
+; https://www.appveyor.com/docs/installed-software/#python
+Source: "C:\Python27\*";            DestDir: "{app}\python";        Flags: recursesubdirs; Components: "Python\py27"
+Source: "C:\Python35\*";            DestDir: "{app}\python";        Flags: recursesubdirs; Components: "Python\py35"
 
 [Run]
 ; Automatically started...
