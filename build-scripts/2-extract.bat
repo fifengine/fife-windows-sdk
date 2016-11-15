@@ -9,12 +9,10 @@ set TARGET_DIR="..\extracted"
 
 pushd downloads
 
-rem dir
-
 if not exist %TARGET_DIR% (mkdir %TARGET_DIR%)
 
 echo.
-echo ### Extracting Build Tools into the folder %TARGET_DIR%
+echo === Extracting Build Tools into the folder %TARGET_DIR%
 echo.
 
 echo.
@@ -38,7 +36,7 @@ rem %ZIP% x tdm-gcc.7z -o%TARGET_DIR% > nul
 rem move "%TARGET_DIR%\tdm-gcc-*" "%TARGET_DIR%\mingw"
 
 echo.
-echo ### Extracting Dependencies of Fifengine into the folder %TARGET_DIR%
+echo === Extracting Dependencies of Fifengine into the folder %TARGET_DIR%
 echo.
 
 popd
