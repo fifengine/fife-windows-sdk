@@ -98,12 +98,16 @@ Name: "Python\py35";   Description: "[build tools] Python v3.5";                
 Name: swig;            Description: "[build tools] SWIG - interface generator";         Types: full build-tools   
 
 [Files]
-Source: "..\repackage\cmake\*";     DestDir: "{app}\cmake";         Flags: recursesubdirs; Components: cmake
-Source: "..\repackage\swig\*";      DestDir: "{app}\swig";          Flags: recursesubdirs; Components: swig
+Source: "..\repackage\libfife.win32-py2.7.exe"; DestDir: "{tmp}"                        Flags: recursesubdirs; Components: fifengine
+Source: "..\repackage\fifengine-includes"       DestDir: "{app}\fifengine-includes";    Flags: recursesubdirs; Components: dependencies
+Source: "..\repackage\cmake\*";                 DestDir: "{app}\cmake";                 Flags: recursesubdirs; Components: cmake
+Source: "..\repackage\swig\*";                  DestDir: "{app}\swig";                  Flags: recursesubdirs; Components: swig
 ; include Python from Appveyor
 ; https://www.appveyor.com/docs/installed-software/#python
-Source: "C:\Python27\*";            DestDir: "{app}\python";        Flags: recursesubdirs; Components: "Python\py27"
-Source: "C:\Python35\*";            DestDir: "{app}\python";        Flags: recursesubdirs; Components: "Python\py35"
+Source: "C:\Python27\*";                        DestDir: "{app}\python";                Flags: recursesubdirs; Components: "Python\py27"
+Source: "C:\Python35\*";                        DestDir: "{app}\python";                Flags: recursesubdirs; Components: "Python\py35"
 
 [Run]
 ; Automatically started...
+Filename: "{tmp}\libfife.win32-py2.7.exe"
+
