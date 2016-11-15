@@ -6,11 +6,8 @@ init:
   - date /T & time /T
   - git config --global core.autocrlf input
 
-#before_build: 
-  #- dir
-  #- build-tools\7zip\x64\7za
-  #- build-tools\aria2\aria2c -v
-  #- build-tools\innosetup\iscc -v 
+before_build: 
+  - build-scripts\1-download.bat
 
 build_script:
   - build-tools\innosetup\iscc /DAPP_VERSION=%APPVEYOR_BUILD_VERSION% installer\fife-sdk.iss
