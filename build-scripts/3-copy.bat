@@ -28,4 +28,7 @@ rem move "%EXTRACTED_DIR%\python-installer" "%TARGET_DIR%"
 rem echo TDM-GCC-MINGW
 rem move "%EXTRACTED_DIR%\mingw" "%TARGET_DIR%"
 
+echo Fifengine Dependencies
+move "%EXTRACTED_DIR%\fifengine-includes" "%TARGET_DIR%"
+
 popd

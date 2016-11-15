@@ -36,7 +36,12 @@ rem %ZIP% x tdm-gcc.7z -o%TARGET_DIR% > nul
 rem move "%TARGET_DIR%\tdm-gcc-*" "%TARGET_DIR%\mingw"
 
 echo.
-echo === Extracting Dependencies of Fifengine into the folder %TARGET_DIR%
+echo === Extracting Fifengine Dependencies into the folder %TARGET_DIR%
 echo.
+
+echo.
+echo Fifengine Dependencies
+%ZIP% x libfife-dependencies.zip -o%TARGET_DIR%\fifengine-includes > nul
+move "%TARGET_DIR%\fifengine-includes" "%TARGET_DIR%\fifengine-includes"
 
 popd
