@@ -13,9 +13,9 @@ init:
 
 before_build: 
   - build-scripts\1-download.bat
-  - dir "%APPVEYOR_BUILD_FOLDER%\downloads" /s
+  - dir "%APPVEYOR_BUILD_FOLDER%\downloads"
   - build-scripts\2-extract.bat
-  - dir "%APPVEYOR_BUILD_FOLDER%\extracted" /s
+  - dir "%APPVEYOR_BUILD_FOLDER%\extracted"
   
 build_script:
   - build-tools\innosetup\iscc /DAPP_VERSION=%APPVEYOR_BUILD_VERSION% installer\fife-sdk.iss
