@@ -1,8 +1,10 @@
 # version format
 version: 0.0.{build}
 
+# cache the "downloads" folder in the build folder
+# refresh cache, if appveyor.yml changes
 cache:
-  - C:\projects\downloads
+  - downloads -> appveyor.yml
 
 # scripts that are called at very beginning, before repo cloning
 init:
@@ -11,6 +13,7 @@ init:
 
 before_build: 
   - build-scripts\1-download.bat
+  - build-scripts\2-extract.bat
   - dir C:\projects /s
 
 build_script:
