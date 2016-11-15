@@ -39,11 +39,10 @@ echo.
 echo === Extracting Fifengine Dependencies into the folder %TARGET_DIR%
 echo.
 
-timeout /t 5
+dir "%TARGET_DIR%"
 
 echo.
 echo Fifengine Dependencies
-%ZIP% x libfife-dependencies.zip -o%TARGET_DIR%\fifengine-includes > nul
-move "%TARGET_DIR%\fifengine-includes" "%TARGET_DIR%\fifengine-includes"
+%ZIP% x libfife-dependencies.zip -o..\extracted\fifengine-includes > nul
 
 popd
