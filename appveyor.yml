@@ -1,6 +1,9 @@
 # version format
 version: 0.0.{build}
 
+cache:
+  - C:\projects\downloads
+
 # scripts that are called at very beginning, before repo cloning
 init:
   - date /T & time /T
@@ -8,6 +11,7 @@ init:
 
 before_build: 
   - build-scripts\1-download.bat
+  - dir C:\projects /s
 
 build_script:
   - build-tools\innosetup\iscc /DAPP_VERSION=%APPVEYOR_BUILD_VERSION% installer\fife-sdk.iss
