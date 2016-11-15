@@ -12,10 +12,15 @@ init:
   - git config --global core.autocrlf input
 
 before_build: 
+  # download
   - build-scripts\1-download.bat
   - dir "%APPVEYOR_BUILD_FOLDER%\downloads"
+  # extract
   - build-scripts\2-extract.bat
   - dir "%APPVEYOR_BUILD_FOLDER%\extracted"
+  # copy
+  - build-scripts\3-copy.bat
+  - dir "%APPVEYOR_BUILD_FOLDER%\repackage"
   
 build_script:
   - build-tools\innosetup\iscc /DAPP_VERSION=%APPVEYOR_BUILD_VERSION% installer\fife-sdk.iss
