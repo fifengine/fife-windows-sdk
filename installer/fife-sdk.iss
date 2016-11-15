@@ -99,7 +99,7 @@ Name: swig;            Description: "[build tools] SWIG - interface generator"; 
 
 [Files]
 Source: "..\repackage\libfife.win32-py2.7.exe"; DestDir: "{tmp}";                       Flags: recursesubdirs; Components: fifengine
-Source: "..\repackage\fifengine-includes";      DestDir: "{app}\fifengine-includes";    Flags: recursesubdirs; Components: dependencies
+Source: "..\repackage\fifengine-includes\*";    DestDir: "{app}\fifengine-includes";    Flags: recursesubdirs; Components: dependencies
 Source: "..\repackage\cmake\*";                 DestDir: "{app}\cmake";                 Flags: recursesubdirs; Components: cmake
 Source: "..\repackage\swig\*";                  DestDir: "{app}\swig";                  Flags: recursesubdirs; Components: swig
 ; include Python from Appveyor
