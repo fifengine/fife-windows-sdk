@@ -97,7 +97,8 @@ Name: swig;            Description: "[build tools] SWIG - interface generator"; 
 Name: demos;           Description: "[fifengine] Demos";                                Types: full fife-demos
 
 [Files]
-
+Source: "..\repackage\cmake\*";     DestDir: "{app}\cmake";         Flags: recursesubdirs; Components: cmake
+Source: "..\repackage\swig\*";      DestDir: "{app}\swig";          Flags: recursesubdirs; Components: swig
 
 [Run]
 ; Automatically started...
