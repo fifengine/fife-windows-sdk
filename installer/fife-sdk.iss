@@ -98,7 +98,7 @@ Name: "Python\py35";   Description: "[build tools] Python v3.5";                
 Name: swig;            Description: "[build tools] SWIG - interface generator";         Types: full build-tools   
 
 [Files]
-Source: "..\repackage\libfife.win32-py2.7.exe"; DestDir: "{tmp}"                        Flags: recursesubdirs; Components: fifengine
+Source: "..\repackage\libfife.win32-py2.7.exe"; DestDir: "{tmp}";                       Flags: recursesubdirs; Components: fifengine
 Source: "..\repackage\fifengine-includes"       DestDir: "{app}\fifengine-includes";    Flags: recursesubdirs; Components: dependencies
 Source: "..\repackage\cmake\*";                 DestDir: "{app}\cmake";                 Flags: recursesubdirs; Components: cmake
 Source: "..\repackage\swig\*";                  DestDir: "{app}\swig";                  Flags: recursesubdirs; Components: swig
@@ -109,5 +109,5 @@ Source: "C:\Python35\*";                        DestDir: "{app}\python";        
 
 [Run]
 ; Automatically started...
-Filename: "{tmp}\libfife.win32-py2.7.exe"
+Filename: "{tmp}\libfife.win32-py2.7.exe";
 
