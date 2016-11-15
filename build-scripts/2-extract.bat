@@ -39,10 +39,14 @@ echo.
 echo === Extracting Fifengine Dependencies into the folder %TARGET_DIR%
 echo.
 
-dir "%TARGET_DIR%"
-
 echo.
 echo Fifengine Dependencies
 %ZIP% x libfife-dependencies.zip -o..\extracted\fifengine-includes > nul
+
+echo.
+echo Fifengine Python27 Installer
+copy libfife.win32-py2.7.exe "%TARGET_DIR%\libfife.win32-py2.7.exe"
+
+dir "%TARGET_DIR%"
 
 popd
