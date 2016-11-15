@@ -39,6 +39,8 @@ echo.
 echo === Extracting Fifengine Dependencies into the folder %TARGET_DIR%
 echo.
 
+timeout /t 5
+
 echo.
 echo Fifengine Dependencies
 %ZIP% x libfife-dependencies.zip -o%TARGET_DIR%\fifengine-includes > nul
