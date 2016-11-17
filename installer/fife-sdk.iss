@@ -68,8 +68,11 @@ WizardSmallImageFile=images\WizardSmallImage.bmp
 OutputBaseFilename={#APP_NAME}-{#APP_VERSION}-Setup-{#APP_COMPILER}-x86
 OutputDir=..\_build
 
-; disable wizard pages: Ready
+; disable wizard pages: Welcome (by default), Ready
 DisableReadyPage=yes
+
+; enable wizard pages: Select Destination Location
+DisableDirPage=no
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
