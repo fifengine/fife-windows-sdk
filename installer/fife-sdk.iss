@@ -113,5 +113,5 @@ Source: "C:\Python35\*";                        DestDir: "{app}\python";        
 ; Define items to run automatically...
 [Run]
 ; install "libfife for python2.7" only when "python27" and "fifengine" are selected
-Filename: "{tmp}\libfife.win32-py2.7.exe";      Components: "Python\py27" and fifengine
+Filename: "{tmp}\libfife.win32-py2.7.exe";      Components: Python\py27 and fifengine
 
