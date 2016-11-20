@@ -45,7 +45,7 @@ echo Fifengine Dependencies
 
 echo.
 echo Fifengine Python27 Installer
-copy libfife.win32-py2.7.exe "%TARGET_DIR%\libfife.win32-py2.7.exe"
+%ZIP% x libfife.win32-py2.7.zip -o..\extracted\fifengine > nul
 
 dir "%TARGET_DIR%"
 
