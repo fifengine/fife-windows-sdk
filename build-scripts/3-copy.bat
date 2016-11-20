@@ -32,6 +32,6 @@ echo Fifengine Dependencies
 move "%EXTRACTED_DIR%\fifengine-includes" "%TARGET_DIR%"
 
 echo Fifengine Python27 Installer 
-move "%EXTRACTED_DIR%\libfife.win32-py2.7.exe" "%TARGET_DIR%"
+move "%EXTRACTED_DIR%\fife" "%TARGET_DIR%"
 
 popd
