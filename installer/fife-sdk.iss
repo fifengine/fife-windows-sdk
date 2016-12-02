@@ -90,7 +90,8 @@ Name: "custom";        Description: "Custom installation"; Flags: iscustom
 
 ; Define components to install
 [Components]
-Name: fifengine;       Description: "[fifengine] Fifengine - Isometric Game Engine";    Types: full fife-only ;fife-demos
+Name: fifengine;       Description: "[fifengine] Fifengine - Isometric Game Engine";    Types: full fife-only
+;Name: fifengine;       Description: "[fifengine] Fifengine - Isometric Game Engine";    Types: full fife-only fife-demos
 Name: dependencies;    Description: "[fifengine] Dependencies";                         Types: full
 ;Name: demos;           Description: "[fifengine] Demos";                                Types: full fife-demos
 ;Name: tools;           Description: "[fifengine] Tools";                                Types: full fife-tools
