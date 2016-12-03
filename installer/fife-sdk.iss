@@ -84,16 +84,17 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "full";          Description: "Full installation (build-tools, engine, dependencies, demos, tools)"
 Name: "build-tools";   Description: "Build-tools only (CMake, Python, Boost, Swig)"
 Name: "fife-only";     Description: "Engine only"
-Name: "fife-demos";    Description: "Engine and Demos"
-Name: "fife-tools";    Description: "Engine and Tools"
+;Name: "fife-demos";    Description: "Engine and Demos"
+;Name: "fife-tools";    Description: "Engine and Tools"
 Name: "custom";        Description: "Custom installation"; Flags: iscustom
 
 ; Define components to install
 [Components]
-Name: fifengine;       Description: "[fifengine] Fifengine - Isometric Game Engine";    Types: full fife-only fife-demos
+Name: fifengine;       Description: "[fifengine] Fifengine - Isometric Game Engine";    Types: full fife-only
+;Name: fifengine;       Description: "[fifengine] Fifengine - Isometric Game Engine";    Types: full fife-only fife-demos
 Name: dependencies;    Description: "[fifengine] Dependencies";                         Types: full
-Name: demos;           Description: "[fifengine] Demos";                                Types: full fife-demos
-Name: tools;           Description: "[fifengine] Tools";                                Types: full fife-tools
+;Name: demos;           Description: "[fifengine] Demos";                                Types: full fife-demos
+;Name: tools;           Description: "[fifengine] Tools";                                Types: full fife-tools
 Name: cmake;           Description: "[build tools] CMake - build system";               Types: full build-tools
 Name: "Python";        Description: "[build tools] Python - programming language";    
 Name: "Python\py27";   Description: "[build tools] Python v2.7";                        Types: full build-tools; Flags: exclusive
@@ -101,7 +102,7 @@ Name: "Python\py35";   Description: "[build tools] Python v3.5";                
 Name: swig;            Description: "[build tools] SWIG - interface generator";         Types: full build-tools   
 
 [Files]
-Source: "..\repackage\libfife.win32-py2.7.exe"; DestDir: "{tmp}";                       Flags: recursesubdirs; Components: fifengine
+Source: "..\repackage\libfife.win32-py2.7.msi"; DestDir: "{tmp}";                       Flags: recursesubdirs; Components: fifengine
 Source: "..\repackage\fifengine-includes\*";    DestDir: "{app}\fifengine-includes";    Flags: recursesubdirs; Components: dependencies
 Source: "..\repackage\cmake\*";                 DestDir: "{app}\cmake";                 Flags: recursesubdirs; Components: cmake
 Source: "..\repackage\swig\*";                  DestDir: "{app}\swig";                  Flags: recursesubdirs; Components: swig
@@ -113,5 +114,4 @@ Source: "C:\Python35\*";                        DestDir: "{app}\python";        
 ; Define items to run automatically...
 [Run]
 ; install "libfife for python2.7" only when "python27" and "fifengine" are selected
-Filename: "{tmp}\libfife.win32-py2.7.exe";      Components: Python\py27 and fifengine
-
+Filename: "msiexec.exe"; Parameters: "/i ""{tmp}\libfife.win32-py2.7.msi""";      Components: Python\py27 and fifengine

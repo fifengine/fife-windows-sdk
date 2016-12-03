@@ -9,11 +9,11 @@
 #
 
 # Fifengine Dependencies (libfife-dependencies)
-https://ci.appveyor.com/api/buildjobs/u9kltpny74p2gulf/artifacts/libfife-dependencies-dev-dbb9631-VC14.zip
+https://ci.appveyor.com/api/buildjobs/eevo7jk07ukw9cj1/artifacts/libfife-dependencies-dev-1979e77-VC14.zip
     dir=downloads
     out=libfife-dependencies.zip
 
 # Fifengine - Python Installer
-https://ci.appveyor.com/api/buildjobs/u9kltpny74p2gulf/artifacts/libfife-dev-dbb9631.win32-py2.7.exe
+https://ci.appveyor.com/api/buildjobs/eevo7jk07ukw9cj1/artifacts/libfife-0.4.0.win32-py2.7.msi
     dir=downloads
-    out=libfife.win32-py2.7.exe
+    out=libfife.win32-py2.7.msi
