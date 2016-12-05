@@ -60,7 +60,7 @@ InternalCompressLevel=max
 SolidCompression=true
 
 ; style
-WizardImageAlphaFormat=premultiplied
+WizardImageAlphaFormat=defined
 WizardImageFile=images\WizardImage.bmp
 WizardSmallImageFile=images\WizardSmallImage.bmp
 
