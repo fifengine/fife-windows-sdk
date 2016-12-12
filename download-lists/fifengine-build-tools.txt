@@ -9,12 +9,12 @@
 #
 
 # CMake - Build Tool
-https://cmake.org/files/v3.6/cmake-3.6.1-win32-x86.zip
+https://cmake.org/files/v3.6/cmake-3.6.3-win32-x86.zip
     dir=downloads
     out=cmake.zip
 
 # Swig
-http://prdownloads.sourceforge.net/swig/swigwin-3.0.8.zip
+http://prdownloads.sourceforge.net/swig/swigwin-3.0.10.zip
     dir=downloads
     out=swig.zip
 
