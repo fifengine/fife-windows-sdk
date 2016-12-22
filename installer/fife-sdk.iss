@@ -115,10 +115,15 @@ Source: "..\repackage\swig\*";                  DestDir: "{app}\swig";          
 Source: "C:\Python27\*";                        DestDir: "{app}\python";                Flags: recursesubdirs ignoreversion; Components: "Python\py27"
 Source: "C:\Python35\*";                        DestDir: "{app}\python";                Flags: recursesubdirs ignoreversion; Components: "Python\py35"
 
-; Define items to run automatically...
+; Define items to run automatically on installation...
 [Run]
 ; install "libfife for python2.7" only when "python27" and "fifengine" are selected
 Filename: "msiexec.exe"; Parameters: "/i ""{tmp}\libfife.win32-py2.7.msi""";      Components: Python\py27 and fifengine
+
+; Define items to run automatically on un-installation...
+[UninstallRun]
+; un-install "libfife"
+;Filename: "uninstall.exe"; Flags: runascurrentuser runhidden
 
 [Registry]
 ; A registry change needs the following directive: [SETUP] ChangesEnvironment=yes
