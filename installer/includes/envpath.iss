@@ -47,7 +47,7 @@ var
   Path: String;
 begin
   // fetch env var PATH
-  RegQueryStringValue(HKEY_LOCAL_MACHINE, EEnvironmentKey, 'PATH', Path);
+  RegQueryStringValue(HKEY_LOCAL_MACHINE, EnvironmentKey, 'PATH', Path);
 
   Log(Format('Preparing to remove from env PATH [%s]', [Path]));
 
