@@ -131,7 +131,7 @@ Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData
 Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python\Lib\site-packages\fife"; Flags: preservestringtype; Check: NeedsAddPath(ExpandConstant('{app}\python\Lib\site-packages\fife')); Components: fifengine;
 
 [Code]
-; modification and path lookup helper for env PATH 
+// modification and path lookup helper for env PATH 
 #include "includes\envpath.iss"
 
 procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
