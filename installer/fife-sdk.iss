@@ -99,14 +99,14 @@ Name: "custom";        Description: "Custom installation"; Flags: iscustom
 [Components]
 Name: fifengine;       Description: "[fifengine] Fifengine - Isometric Game Engine";    Types: full fife-only
 ;Name: fifengine;       Description: "[fifengine] Fifengine - Isometric Game Engine";    Types: full fife-only fife-demos
-Name: dependencies;    Description: "[fifengine] Dependencies";                         Types: full
+Name: dependencies;    Description: "[fifengine] Dependencies";                         Types: full;                        Flags: ignoreversion
 ;Name: demos;           Description: "[fifengine] Demos";                                Types: full fife-demos
 ;Name: tools;           Description: "[fifengine] Tools";                                Types: full fife-tools
 Name: cmake;           Description: "[build tools] CMake - build system";               Types: full build-tools
 Name: "Python";        Description: "[build tools] Python - programming language";    
-Name: "Python\py27";   Description: "[build tools] Python v2.7";                        Types: full build-tools; Flags: exclusive
-Name: "Python\py35";   Description: "[build tools] Python v3.5";                        Types: full build-tools; Flags: exclusive
-Name: swig;            Description: "[build tools] SWIG - interface generator";         Types: full build-tools   
+Name: "Python\py27";   Description: "[build tools] Python v2.7";                        Types: full build-tools; Flags: exclusive ignoreversion
+Name: "Python\py35";   Description: "[build tools] Python v3.5";                        Types: full build-tools; Flags: exclusive ignoreversion
+Name: swig;            Description: "[build tools] SWIG - interface generator";         Types: full build-tools; Flags: ignoreversion  
 
 [Files]
 Source: "..\repackage\libfife.win32-py2.7.msi"; DestDir: "{tmp}";                       Flags: recursesubdirs; Components: fifengine
