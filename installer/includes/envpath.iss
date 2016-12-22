@@ -61,11 +61,11 @@ begin
      // and write the new path to registry
      RegWriteStringValue(HKEY_LOCAL_MACHINE, EnvironmentKey, 'PATH', Path);
 
-     Log(Format('Path [%s] removed from PATH => [%s]', [Path, Paths]));
+     Log(Format('Path [%s] removed from PATH => [%s]', [PathToRemove, Path]));
   end
   else
   begin
-     Log(Format('Path [%s] not found in PATH', [Path]));
+     Log(Format('Path [%s] not found in PATH', [PathToRemove]));
   end;
 end;
 
