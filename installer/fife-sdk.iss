@@ -62,10 +62,7 @@ SolidCompression=true
 ; style
 WizardImageFile=images\WizardImage.bmp
 WizardSmallImageFile=images\WizardSmallImage.bmp
-
-; icon for now both icons are the same.
 SetupIconFile=images\fife.ico
-UninstallIconFile=images\fife.ico
  
 ; this creates the installer executable in the build folder
 ; for example: "_build\FifeSDK-0.4.0-Setup-VC14-x86.exe"
