@@ -78,6 +78,9 @@ DisableReadyPage=yes
 ; enable wizard pages: Select Destination Location
 DisableDirPage=no
 
+; Tell Windows Explorer to reload the environment, because Registry change (env PATH change)
+ChangesEnvironment=yes
+
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
@@ -119,3 +122,23 @@ Source: "C:\Python35\*";                        DestDir: "{app}\python";        
 [Run]
 ; install "libfife for python2.7" only when "python27" and "fifengine" are selected
 Filename: "msiexec.exe"; Parameters: "/i ""{tmp}\libfife.win32-py2.7.msi""";      Components: Python\py27 and fifengine
+
+[Registry]
+; A registry change needs the following directive: [SETUP] ChangesEnvironment=yes
+Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python"; Flags: preservestringtype; Check: NeedsAddPath(ExpandConstant('{app}\python')); Components: Python\py27 or Python\py35;
+
+[Code]
+; modification and path lookup helper for env PATH 
+#include "includes\envpath.iss"
+
+procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
+var 
+  appDir: string;
+begin
+  appDir := ExpandConstant('{app}');
+  // finally, remove paths from the ENV path
+  if (CurUninstallStep = usPostUninstall) then begin
+     RemovePathFromEnvironmentPath(appDir + '\python');
+     RemovePathFromEnvironmentPath(appDir);
+  end;
+end;
