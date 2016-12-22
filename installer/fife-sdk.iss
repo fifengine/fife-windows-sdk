@@ -99,24 +99,24 @@ Name: "custom";        Description: "Custom installation"; Flags: iscustom
 [Components]
 Name: fifengine;       Description: "[fifengine] Fifengine - Isometric Game Engine";    Types: full fife-only
 ;Name: fifengine;       Description: "[fifengine] Fifengine - Isometric Game Engine";    Types: full fife-only fife-demos
-Name: dependencies;    Description: "[fifengine] Dependencies";                         Types: full;                        Flags: ignoreversion
+Name: dependencies;    Description: "[fifengine] Dependencies";                         Types: full;
 ;Name: demos;           Description: "[fifengine] Demos";                                Types: full fife-demos
 ;Name: tools;           Description: "[fifengine] Tools";                                Types: full fife-tools
 Name: cmake;           Description: "[build tools] CMake - build system";               Types: full build-tools
 Name: "Python";        Description: "[build tools] Python - programming language";    
-Name: "Python\py27";   Description: "[build tools] Python v2.7";                        Types: full build-tools; Flags: exclusive ignoreversion
-Name: "Python\py35";   Description: "[build tools] Python v3.5";                        Types: full build-tools; Flags: exclusive ignoreversion
-Name: swig;            Description: "[build tools] SWIG - interface generator";         Types: full build-tools; Flags: ignoreversion  
+Name: "Python\py27";   Description: "[build tools] Python v2.7";                        Types: full build-tools; Flags: exclusive
+Name: "Python\py35";   Description: "[build tools] Python v3.5";                        Types: full build-tools; Flags: exclusive
+Name: swig;            Description: "[build tools] SWIG - interface generator";         Types: full build-tools; 
 
 [Files]
-Source: "..\repackage\libfife.win32-py2.7.msi"; DestDir: "{tmp}";                       Flags: recursesubdirs; Components: fifengine
-Source: "..\repackage\fifengine-includes\*";    DestDir: "{app}\fifengine-includes";    Flags: recursesubdirs; Components: dependencies
-Source: "..\repackage\cmake\*";                 DestDir: "{app}\cmake";                 Flags: recursesubdirs; Components: cmake
-Source: "..\repackage\swig\*";                  DestDir: "{app}\swig";                  Flags: recursesubdirs; Components: swig
+Source: "..\repackage\libfife.win32-py2.7.msi"; DestDir: "{tmp}";                       Flags: recursesubdirs;               Components: fifengine
+Source: "..\repackage\fifengine-includes\*";    DestDir: "{app}\fifengine-includes";    Flags: recursesubdirs ignoreversion; Components: dependencies
+Source: "..\repackage\cmake\*";                 DestDir: "{app}\cmake";                 Flags: recursesubdirs ignoreversion; Components: cmake
+Source: "..\repackage\swig\*";                  DestDir: "{app}\swig";                  Flags: recursesubdirs ignoreversion; Components: swig
 ; include Python from Appveyor
 ; https://www.appveyor.com/docs/installed-software/#python
-Source: "C:\Python27\*";                        DestDir: "{app}\python";                Flags: recursesubdirs; Components: "Python\py27"
-Source: "C:\Python35\*";                        DestDir: "{app}\python";                Flags: recursesubdirs; Components: "Python\py35"
+Source: "C:\Python27\*";                        DestDir: "{app}\python";                Flags: recursesubdirs ignoreversion; Components: "Python\py27"
+Source: "C:\Python35\*";                        DestDir: "{app}\python";                Flags: recursesubdirs ignoreversion; Components: "Python\py35"
 
 ; Define items to run automatically...
 [Run]
