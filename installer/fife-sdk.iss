@@ -118,12 +118,12 @@ Source: "..\repackage\libfife.win32-py2.7.msi"; DestDir: "{app}\libfife";       
 [Run]
 ; install "libfife for python2.7" only when "python27" and "fifengine" are selected
 ; install silently into the target dir
-Filename: "msiexec.exe"; StatusMsg: "Installing libFife for Python2.7"; Parameters: "/i ""{app}\libfife\libfife.win32-py2.7.msi"" TARGETDIR=""{app}\python"" /qn"; Components: Python\py27 and fifengine
+Filename: "msiexec.exe"; WorkingDir: "{app}\libfife"; Parameters: "/i libfife.win32-py2.7.msi" TARGETDIR=""{app}\python"" /qn"; StatusMsg: "Installing libFife for Python2.7"; Components: Python\py27 and fifengine
 
 ; Define items to run automatically on un-installation...
 [UninstallRun]
 ; un-install "libfife"
-Filename: "msiexec.exe"; StatusMsg: "Uninstalling libFife for Python2.7"; Parameters: "/x ""{app}\libfife\libfife.win32-py2.7.msi"" /qn"; Flags: runascurrentuser runhidden
+Filename: "msiexec.exe"; WorkingDir: "{app}\libfife"; Parameters: "/x libfife.win32-py2.7.msi" /qn"; StatusMsg: "Uninstalling libFife for Python2.7"; Flags: runascurrentuser runhidden
 
 [Registry]
 ; A registry change needs the following directive: [SETUP] ChangesEnvironment=yes
