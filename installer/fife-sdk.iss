@@ -111,6 +111,9 @@ Source: "..\repackage\swig\*";                  DestDir: "{app}\swig";          
 ; https://www.appveyor.com/docs/installed-software/#python
 Source: "C:\Python27\*";                        DestDir: "{app}\python";                Flags: recursesubdirs ignoreversion; Components: "Python\py27"
 Source: "C:\Python35\*";                        DestDir: "{app}\python";                Flags: recursesubdirs ignoreversion; Components: "Python\py35"
+; collect "PythonNN.dll", which resides in the windows system folder (SysWOW64 or system32)
+Source: "C:\Windows\SysWOW64\python27.dll"      DestDir: "{app}\python";                Flags: recursesubdirs ignoreversion; Components: "Python\py27"
+Source: "C:\Windows\SysWOW64\python35.dll"      DestDir: "{app}\python";                Flags: recursesubdirs ignoreversion; Components: "Python\py35"
 ; Fifengine below Python, because we are installing the python library into the Python installation folder
 Source: "..\repackage\libfife.win32-py2.7.msi"; DestDir: "{app}\libfife";               Flags: recursesubdirs;               Components: fifengine
 
