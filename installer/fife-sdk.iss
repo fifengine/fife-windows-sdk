@@ -130,9 +130,9 @@ Filename: "msiexec.exe"; Parameters: "/x ""{app}\libfife\libfife.win32-py2.7.msi
 [Registry]
 ; A registry change needs the following directive: [SETUP] ChangesEnvironment=yes
 ; add path to python
-Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python"; Flags: preservestringtype; Check: NeedsAddPath(ExpandConstant('{app}\python')); Components: Python\py27 or Python\py35;
+Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python"; Flags: preservestringtype uninsdeletekey; Check: NeedsAddPath(ExpandConstant('{app}\python')); Components: Python\py27 or Python\py35;
 ; add path to libfife
-Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python\Lib\site-packages\fife"; Flags: preservestringtype; Check: NeedsAddPath(ExpandConstant('{app}\python\Lib\site-packages\fife')); Components: fifengine;
+Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python\Lib\site-packages\fife"; Flags: preservestringtype uninsdeletekey; Check: NeedsAddPath(ExpandConstant('{app}\python\Lib\site-packages\fife')); Components: fifengine;
 
 [Code]
 // modification and path lookup helper for env PATH 
