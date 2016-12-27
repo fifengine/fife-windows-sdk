@@ -151,8 +151,7 @@ begin
   if (CurUninstallStep = usPostUninstall) then
   begin
     RemovePathLocalUser(ExpandConstant('{app}') + '\python\Lib\site-packages\fife');
-    RemovePathLocalUser(ExpandConstant('{app}') + '\python');
-    RemovePathLocalUser(ExpandConstant('{app}'));
+    RemovePathLocalUser(ExpandConstant('{app}') + '\python');    
     // 3. refresh environment, so that the modified PATH var is activated
     RefreshEnvironment();
   end;
