@@ -116,6 +116,7 @@ Source: "C:\Windows\SysWOW64\python27.dll";     DestDir: "{app}\python";        
 ; Fifengine below Python, because we are installing the python library into the Python installation folder
 Source: "..\repackage\libfife.win32-py2.7.msi"; DestDir: "{app}\libfife";               Flags: recursesubdirs;               Components: fifengine
 
+
 ; Define items to run automatically on installation...
 [Run]
 ; install "libfife for python2.7" only when "python27" and "fifengine" are selected
@@ -130,9 +131,9 @@ Filename: "msiexec.exe"; Parameters: "/x ""{app}\libfife\libfife.win32-py2.7.msi
 [Registry]
 ; A registry change needs the following directive: [SETUP] ChangesEnvironment=yes
 ; add path to python
-Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python"; Flags: preservestringtype; Check: NeedsAddPath(ExpandConstant('{app}\python')); Components: Python\py27 or Python\py35;
+Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python')); Components: Python\py27 or Python\py35;
 ; add path to libfife
-Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python\Lib\site-packages\fife"; Flags: preservestringtype; Check: NeedsAddPath(ExpandConstant('{app}\python\Lib\site-packages\fife')); Components: fifengine;
+Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python\Lib\site-packages\fife"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python\Lib\site-packages\fife')); Components: fifengine;
 
 [Code]
 // modification and path lookup helper for env PATH 
@@ -144,15 +145,15 @@ begin
   // 1. get the old env var PATH
   if (CurUninstallStep =  usUninstall) then
   begin
-    SaveOldPath();
+    SaveOldPathLocalUser();
   end;  
   // 2. remove paths from the env var PATH 
   if (CurUninstallStep = usPostUninstall) then
   begin
-     RemovePath(ExpandConstant('{app}') + '\python\Lib\site-packages\fife');
-     RemovePath(ExpandConstant('{app}') + '\python');
-     RemovePath(ExpandConstant('{app}'));
-     // 3. refresh environment, so that the modified PATH var is activated
-     RefreshEnvironment();
+    RemovePathLocalUser(ExpandConstant('{app}') + '\python\Lib\site-packages\fife');
+    RemovePathLocalUser(ExpandConstant('{app}') + '\python');
+    RemovePathLocalUser(ExpandConstant('{app}'));
+    // 3. refresh environment, so that the modified PATH var is activated
+    RefreshEnvironment();
   end;
 end;
