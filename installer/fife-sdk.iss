@@ -139,14 +139,20 @@ Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData
 #include "includes\envpath.iss"
 
 procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
-var 
-  appDir: string;
 begin
-  appDir := ExpandConstant('{app}');
-  // finally, remove paths from the ENV path
-  if (CurUninstallStep = usPostUninstall) then begin
-     RemovePathFromEnvironmentPath(appDir + '\python');
-     RemovePathFromEnvironmentPath(appDir + '\python\Lib\site-packages\fife');
-     RemovePathFromEnvironmentPath(appDir);
+  // Removing a path from the PATH variable works in 3 steps:
+  // 1. get the old env var PATH
+  if (CurUninstallStep =  usUninstall) then
+  begin
+    SaveOldPath();
+  end;  
+  // 2. remove paths from the env var PATH 
+  if (CurUninstallStep = usPostUninstall) then
+  begin
+     RemovePath(ExpandConstant('{app}') + '\python\Lib\site-packages\fife');
+     RemovePath(ExpandConstant('{app}') + '\python');
+     RemovePath(ExpandConstant('{app}'));
+     // 3. refresh environment, so that the modified PATH var is activated
+     RefreshEnvironment();
   end;
 end;

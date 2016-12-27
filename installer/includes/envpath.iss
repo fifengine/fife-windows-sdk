@@ -39,33 +39,48 @@
   -----------------------------------------------------------------------------
 }
 
+var
+  OldPath: string;
+
 const
   EnvironmentKey = 'SYSTEM\CurrentControlSet\Control\Session Manager\Environment';
 
-procedure RemovePathFromEnvironmentPath(PathToRemove: string);
-var
-  Path: String;
+// fetch env var PATH and stores it into 
+procedure SaveOldPath();
 begin
-  // fetch env var PATH
-  RegQueryStringValue(HKEY_LOCAL_MACHINE, EnvironmentKey, 'PATH', Path);
-
-  Log(Format('Preparing to remove from env PATH [%s]', [Path]));
-
-  // check, if the PathToRemove is inside PATH
-  if Pos(LowerCase(PathToRemove) + ';', LowerCase(Path)) <> 0 then
+  if not RegQueryStringValue(HKEY_LOCAL_MACHINE, EnvironmentKey, 'Path', OldPath) then
   begin
-  
-     // replace the PathToRemove string segment with empty
-     StringChange(Path, PathToRemove + ';', '');
+    Log('PATH not found');
+  end else begin
+    Log(Format('Old Path saved as [%s]', [OldPath]));
+  end;
+end;
 
-     // and write the new path to registry
-     RegWriteStringValue(HKEY_LOCAL_MACHINE, EnvironmentKey, 'PATH', Path);
 
-     Log(Format('Path [%s] removed from PATH => [%s]', [PathToRemove, Path]));
+procedure RemovePath(Path: string);
+var
+  P: Integer;
+begin
+  Log(Format('Prepare to remove from Old PATH [%s]', [OldPath]));
+
+  P := Pos(';' + Uppercase(Path) + ';', ';' + Uppercase(OldPath) + ';');
+  if P = 0 then
+  begin
+    Log(Format('Path [%s] not found in PATH', [Path]));
   end
-  else
+    else
   begin
-     Log(Format('Path [%s] not found in PATH', [PathToRemove]));
+    Delete(OldPath, P - 1, Length(Path) + 1);
+    Log(Format('Path [%s] removed from PATH => [%s]', [Path, OldPath]));
+
+    if RegWriteExpandStringValue(HKEY_LOCAL_MACHINE, EnvironmentKey, 'Path', OldPath) then
+    begin
+      Log('PATH written');
+    end
+      else
+    begin
+      Log('Error writing PATH');
+    end;
   end;
 end;
 
@@ -87,4 +102,47 @@ begin
   Result := Pos(';' + UpperCase(PathToAdd) + ';', ';' + UpperCase(Paths) + ';') = 0;
   if Result = True then
      Result := Pos(';' + UpperCase(PathToAdd) + '\;', ';' + UpperCase(Paths) + ';') = 0;
+end;
+
+// ----------------------------------------------------------------------------
+   RefreshEnvironment
+// ----------------------------------------------------------------------------
+
+const
+  SMTO_ABORTIFHUNG = 2;
+  WM_WININICHANGE = $001A;
+  WM_SETTINGCHANGE = WM_WININICHANGE;
+
+type
+  WPARAM = UINT_PTR;
+  LPARAM = INT_PTR;
+  LRESULT = INT_PTR;
+
+{
+   Wrapper function to call SendMessageTimeoutA function from user32.dll.
+   Used by procedure RefreshEnvironment, see below.
+}
+function SendTextMessageTimeout(
+  hWnd: HWND; 
+  Msg: UINT;
+  wParam: WPARAM; 
+  lParam: PAnsiChar; 
+  fuFlags: UINT;
+  uTimeout: UINT; 
+  out lpdwResult: DWORD): LRESULT;  
+external 'SendMessageTimeoutA@user32.dll stdcall';  
+
+{
+  This procedure refreshes the environment.
+  It is used to make registry changes sticky.
+}
+procedure RefreshEnvironment;
+var
+  S: AnsiString;
+  MsgResult: DWORD;
+begin
+  S := 'Environment';
+  SendTextMessageTimeout(
+    HWND_BROADCAST, WM_SETTINGCHANGE, 0, PAnsiChar(S), SMTO_ABORTIFHUNG, 5000, MsgResult
+  );
 end;
