@@ -46,7 +46,7 @@ AppSupportURL={#APP_SUPPORT_URL}
 AppUpdatesURL={#APP_URL}
 
 ; default installation folder is "c:\fife". users might change this via dialog.
-DefaultDirName={pf}\FIFE\
+DefaultDirName=c:\fife
 DefaultGroupName={#APP_NAME}
 DirExistsWarning=No
 EnableDirDoesntExistWarning=Yes
