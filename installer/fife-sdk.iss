@@ -75,8 +75,11 @@ DisableReadyPage=yes
 ; enable wizard pages: Select Destination Location
 DisableDirPage=no
 
-; Tell Windows Explorer to reload the environment, because Registry change (env PATH change)
+; Tell Windows to reload the environment, because Registry change (env PATH change)
 ChangesEnvironment=yes
+
+; Tell Windows to reload the environment, because Registry change (file association change: .py)
+ChangesAssociations=yes
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
