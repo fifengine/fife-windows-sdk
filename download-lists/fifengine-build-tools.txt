@@ -14,7 +14,7 @@ https://cmake.org/files/v3.7/cmake-3.7.1-win32-x86.zip
     out=cmake.zip
 
 # Swig
-http://prdownloads.sourceforge.net/swig/swig-3.0.11.tar.gz
+http://prdownloads.sourceforge.net/swig/swigwin-3.0.11.zip
     dir=downloads
     out=swig.zip
 
