@@ -29,6 +29,16 @@ move "%TARGET_DIR%\swig*" "%TARGET_DIR%\swig"
 rd /s /q "%TARGET_DIR%\swig\Doc"
 rd /s /q "%TARGET_DIR%\swig\Examples"
 
+echo.
+echo Strip Python 2.7
+rd /s /q "C:\Python27\Doc"
+rd /s /q "C:\Python27\tcl"
+
+echo.
+echo Strip Python 3.5
+rd /s /q "C:\Python35\Doc"
+rd /s /q "C:\Python35\tcl"
+
 rem echo.
 rem echo Python 
 rem %ZIP% x ActivePython.zip -o%TARGET_DIR% > nul
