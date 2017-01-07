@@ -19,11 +19,15 @@ echo.
 echo CMake
 %ZIP% x cmake.zip -o%TARGET_DIR% > nul
 move "%TARGET_DIR%\cmake-*" "%TARGET_DIR%\cmake"
+rd /s /q "%TARGET_DIR%\cmake\doc"
+rd /s /q "%TARGET_DIR%\cmake\man"
 
 echo.
 echo Swig
 %ZIP% x swig.zip -o%TARGET_DIR% > nul
 move "%TARGET_DIR%\swig*" "%TARGET_DIR%\swig"
+rd /s /q "%TARGET_DIR%\swig\Doc"
+rd /s /q "%TARGET_DIR%\swig\Examples"
 
 rem echo.
 rem echo Python 
