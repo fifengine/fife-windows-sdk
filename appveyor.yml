@@ -22,6 +22,9 @@ before_build:
   # copy
   - build-scripts\3-copy.bat
   - dir "%APPVEYOR_BUILD_FOLDER%\repackage"
+  # stripdown
+  - build-scripts\4-stripdown.bat
+  - dir "%APPVEYOR_BUILD_FOLDER%\repackage"
   
 build_script:
   - build-tools\innosetup\iscc /DAPP_VERSION=%APPVEYOR_BUILD_VERSION% installer\fife-sdk.iss

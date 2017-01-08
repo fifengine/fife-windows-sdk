@@ -22,8 +22,17 @@ move "%EXTRACTED_DIR%\cmake" "%TARGET_DIR%"
 echo Swig
 move "%EXTRACTED_DIR%\swig" "%TARGET_DIR%"
 
-rem echo Python 
-rem move "%EXTRACTED_DIR%\python-installer" "%TARGET_DIR%"
+echo Python27
+rem include Python from Appveyor
+xcopy /SIQY C:\Python27 "%TARGET_DIR%\Python27"
+
+echo Python27.dll
+rem add the mising python27.dll to the python folder
+copy C:\Windows\SysWOW64\python27.dll "%TARGET_DIR%\Python27"
+
+echo Python35
+rem include Python from Appveyor
+xcopy /SIQY C:\Python35 "%TARGET_DIR%\Python35"
 
 rem echo TDM-GCC-MINGW
 rem move "%EXTRACTED_DIR%\mingw" "%TARGET_DIR%"

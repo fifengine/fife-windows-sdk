@@ -110,12 +110,8 @@ Name: swig;            Description: "[build tools] SWIG - interface generator"; 
 Source: "..\repackage\fifengine-includes\*";    DestDir: "{app}\fifengine-includes";    Flags: recursesubdirs ignoreversion; Components: dependencies
 Source: "..\repackage\cmake\*";                 DestDir: "{app}\cmake";                 Flags: recursesubdirs ignoreversion; Components: cmake
 Source: "..\repackage\swig\*";                  DestDir: "{app}\swig";                  Flags: recursesubdirs ignoreversion; Components: swig
-; include Python from Appveyor
-; https://www.appveyor.com/docs/installed-software/#python
-Source: "C:\Python27\*";                        DestDir: "{app}\python";                Flags: recursesubdirs ignoreversion; Components: "Python\py27"
-Source: "C:\Python35\*";                        DestDir: "{app}\python";                Flags: recursesubdirs ignoreversion; Components: "Python\py35"
-; collect "PythonNN.dll", which resides in the windows system folder (SysWOW64 or system32)
-Source: "C:\Windows\SysWOW64\python27.dll";     DestDir: "{app}\python";                Flags: recursesubdirs ignoreversion; Components: "Python\py27"
+Source: "..\repackage\Python27\*";                        DestDir: "{app}\python";                Flags: recursesubdirs ignoreversion; Components: "Python\py27"
+Source: "..\repackage\Python35\*";                        DestDir: "{app}\python";                Flags: recursesubdirs ignoreversion; Components: "Python\py35"
 ; Fifengine below Python, because we are installing the python library into the Python installation folder
 Source: "..\repackage\libfife.win32-py2.7.msi"; DestDir: "{app}\libfife";               Flags: recursesubdirs;               Components: fifengine
 
