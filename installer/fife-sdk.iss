@@ -88,23 +88,23 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 ; The user gets a drop-down list to select one of these types.
 ; Selecting a type will selected a set of components.
 [Types]
-Name: "full";          Description: "Full installation (build-tools, engine, dependencies, demos, tools)"
-Name: "build-tools";   Description: "Build-tools only (CMake, Python, Boost, Swig)"
-Name: "fife-only";     Description: "Engine only"
-Name: "fife-python-demos";    Description: "Engine and Demos (demos)"
-Name: "editor";        Description: "Fife Map Editor (tools)"
-;Name: "fifengine-dev-docs"; Description: "Fife Dev Manual (doc)"
+Name: "full";                       Description: "Full installation (build-tools, engine, dependencies, demos, tools)"
+Name: "build-tools";                Description: "Build-tools only (CMake, Python, Boost, Swig)"
+Name: "fife-only";                  Description: "Engine only"
+Name: "fife-python-demos";          Description: "Engine and Demos (demos)"
+Name: "mapeditor";                  Description: "Fife Mapeditor (tools)"
 Name: "fifengine-python-tutorials"; Description: "Fife Engine Python Tutorials (tutorials)"
-;Name: "fifengine-c++-tutorials"; Description: "Fife Engine C++ Tutorials (tutorials)"
-;Name: "fifengine-atlas-creator"; Description: "Fife Engine Atlas Creator (tools)"
-Name: "custom";        Description: "Custom installation"; Flags: iscustom
+;Name: "fifengine-c++-tutorials";   Description: "Fife Engine C++ Tutorials (tutorials)"
+;Name: "fifengine-atlas-creator";   Description: "Fife Engine Atlas Creator (tools)"
+;Name: "docs";                      Description: "Fife User and Developer Manuals (doc)"
+Name: "custom";                     Description: "Custom installation"; Flags: iscustom
 
 ; Define components to install
 [Components]
 Name: fifengine;       Description: "[fifengine] Fifengine - Isometric Game Engine";    Types: full fife-only
-Name: mapeditor;       Description: "[dev tools] Fifengine - Map Editor";               Types: full editor
-;Name: devdoc;         Description: "[dev doc] Fifengine - Dev Manual";                Types: full fife-only
 Name: dependencies;    Description: "[fifengine] Dependencies";                         Types: full;
+;Name: docs;           Description: "[manuals] Fifengine - Documentations";             Types: full fife-only 
+Name: mapeditor;       Description: "[dev tools] Fifengine - Mapeditor";                Types: full mapeditor
 Name: demos;           Description: "[fifengine] Demos";                                Types: full fife-python-demos
 Name: tutorials;       Description: "[tutorials] Tutorials";                            Types: full fifengine-python-tutorials
 ;Name: tutorials;       Description: "[tutorials] Tutorials";                            Types: full fifengine-python-tutorials fifengine-c++-tutorials
@@ -119,13 +119,13 @@ Name: swig;            Description: "[build tools] SWIG - interface generator"; 
 Source: "..\repackage\fifengine-includes\*";    DestDir: "{app}\fifengine-includes";    Flags: recursesubdirs ignoreversion; Components: dependencies
 Source: "..\repackage\cmake\*";                 DestDir: "{app}\cmake";                 Flags: recursesubdirs ignoreversion; Components: cmake
 Source: "..\repackage\swig\*";                  DestDir: "{app}\swig";                  Flags: recursesubdirs ignoreversion; Components: swig
-Source: "..\repackage\Python27\*";                        DestDir: "{app}\python";                Flags: recursesubdirs ignoreversion; Components: "Python\py27"
-Source: "..\repackage\Python35\*";                        DestDir: "{app}\python";                Flags: recursesubdirs ignoreversion; Components: "Python\py35"
+Source: "..\repackage\Python27\*";              DestDir: "{app}\python";                Flags: recursesubdirs ignoreversion; Components: "Python\py27"
+Source: "..\repackage\Python35\*";              DestDir: "{app}\python";                Flags: recursesubdirs ignoreversion; Components: "Python\py35"
 ; Fifengine below Python, because we are installing the python library into the Python installation folder
 Source: "..\repackage\libfife.win32-py2.7.msi"; DestDir: "{app}\libfife";               Flags: recursesubdirs;               Components: fifengine
 Source: "..\repackage\fife-editor\*";           DestDir: "{app}\fife-editor";           Flags: recursesubdirs ignoreversion; Components: mapeditor
 Source: "..\repackage\fife-python-demos\*";     DestDir: "{app}\fife-python-demos";     Flags: recursesubdirs ignoreversion; Components: demos
-;Source: "..\repackage\.pdf\*";                 DestDir: "{app}\";                      Flags: recursesubdirs ignoreversion; Components: devdoc
+;Source: "..\repackage\docs\*";                 DestDir: "{app}\docs";                  Flags: recursesubdirs ignoreversion; Components: devdoc
 Source: "..\repackage\fife-python-tutorials\*"; DestDir: "{app}\fife-python-tutorials"; Flags: recursesubdirs ignoreversion; Components: tutorials
 ;Source: "..\repackage\fife-c++-tutorials\*";   DestDir: "{app}\fife-c++-tutorials";    Flags: recursesubdirs ignoreversion; Components: tutorials
 ;Source: "..\repackage\fifengine-atlas-creator\*"; DestDir: "{app}\fifengine-atlas-creator";    Flags: recursesubdirs ignoreversion; Components: atlascreator
