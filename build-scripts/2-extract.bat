@@ -49,25 +49,23 @@ copy libfife.win32-py2.7.msi "%TARGET_DIR%\libfife.win32-py2.7.msi"
 
 echo.
 echo Fifengine Mapeditor
-%ZIP% x fife-editor.zip -o..\extracted\fife-editor > nul
+%ZIP% x fife-editor.zip -o..\extracted > nul
 
 echo.
 echo Fifengine Python Demos
-%ZIP% x fife-python-demos.zip -o..\extracted\fife-python-demos > nul
+%ZIP% x fife-python-demos.zip -o..\extracted > nul
 
 echo.
 echo Fifengine Python Tutorials
-%ZIP% x fife-python-tutorials.zip -o..\extracted\fife-python-tutorials > nul
+%ZIP% x fife-python-tutorials.zip -o..\extracted > nul
 
 rem echo.
 rem echo Fifengine C++ Tutorials
-rem %ZIP% x fife-c++-tutorials.zip -o..\extracted\fife-c++-tutorials > nul
-rem move "%TARGET_DIR%\fife-c++-tutorials*" "%TARGET_DIR%\fife-c++-tutorials"
+rem %ZIP% x fife-c++-tutorials.zip -o..\extracted > nul
 
 rem echo.
 rem echo Fifengine Atlas Creator
 rem %ZIP% x ?.zip -o..\extracted\fifengine-atlas-creator > nul
-rem move "%TARGET_DIR%\fifengine-atlas-creator*" "%TARGET_DIR%\fifengine-atlas-creator"
 
 rem echo.
 rem echo Fifengine Documentations
