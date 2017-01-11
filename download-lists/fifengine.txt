@@ -17,3 +17,31 @@ https://ci.appveyor.com/api/buildjobs/dpurh33nh4a6ka4v/artifacts/libfife-depende
 https://ci.appveyor.com/api/buildjobs/dpurh33nh4a6ka4v/artifacts/libfife-0.4.0.win32-py2.7.msi
     dir=downloads
     out=libfife.win32-py2.7.msi
+
+# Fife Editor
+https://github.com/fifengine/fifengine-editor/archive/master.zip
+    dir=downloads
+    out=fife-editor.zip
+
+# Fife Python Demos
+https://github.com/fifengine/fifengine-demos/archive/master.zip
+    dir=downloads
+    out=fife-python-demos.zip
+
+#Fife Engine Dev Docs (need some work)
+#Need to be done PDF?
+
+# Fife Engine Python Tutorials
+https://github.com/fifengine/python-tutorials/archive/master.zip
+    dir=downloads
+    out=fife-python-tutorials.zip
+
+# Fife Engine C++ Tutorials
+#https://github.com/fifengine/cpp-tutorials/archive/master.zip
+#    dir=downloads
+#    out=fife-c++-tutorials.zip
+
+# Fife Engine Atlas Creator (need some work)
+#https://github.com/fifengine/fifengine-atlas-creator/archive/master.zip
+#    dir=downloads
+#    out=fife-atlas-creator.zip

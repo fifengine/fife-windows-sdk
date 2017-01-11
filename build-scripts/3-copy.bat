@@ -43,4 +43,22 @@ move "%EXTRACTED_DIR%\fifengine-includes" "%TARGET_DIR%"
 echo Fifengine Python27 Installer 
 move "%EXTRACTED_DIR%\libfife.win32-py2.7.msi" "%TARGET_DIR%"
 
+echo Fifengine Editor
+move "%EXTRACTED_DIR%\fife-editor" "%TARGET_DIR%"
+
+echo Fifengine Python Demos
+move "%EXTRACTED_DIR%\fife-python-demos" "%TARGET_DIR%"
+
+rem echo Fifengine Dev Docs
+rem move "%EXTRACTED_DIR%\.pdf" "%TARGET_DIR%"
+
+echo Fifengine Python Tutorials
+move "%EXTRACTED_DIR%\fife-python-tutorials" "%TARGET_DIR%"
+
+rem echo Fifengine C++ Tutorials
+rem move "%EXTRACTED_DIR%\fife-c++-tutorials" "%TARGET_DIR%"
+
+rem echo Fifengine Atlas Creator
+rem move "%EXTRACTED_DIR%\fifengine-atlas-creator" "%TARGET_DIR%"
+
 popd

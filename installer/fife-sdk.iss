@@ -91,15 +91,24 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "full";          Description: "Full installation (build-tools, engine, dependencies, demos, tools)"
 Name: "build-tools";   Description: "Build-tools only (CMake, Python, Boost, Swig)"
 Name: "fife-only";     Description: "Engine only"
-;Name: "fife-demos";    Description: "Engine and Demos"
+Name: "fife-python-demos";    Description: "Engine and Demos (demos)"
+Name: "Editor";        Description: "Fife Map Editor (tools)"
+;Name: "fifengine-dev-docs" Description: "Fife Dev Manual (doc)"
+Name: "fifengine-python-tutorials" Description: "Fife Engine Python Tutorials (tutorials)"
+;Name: "fifengine-c++-tutorials" Description: "Fife Engine C++ Tutorials (tutorials)"
+;Name: "fifengine-atlas-creator" Description: "Fife Engine Atlas Creator (tools)"
 Name: "custom";        Description: "Custom installation"; Flags: iscustom
 
 ; Define components to install
 [Components]
 Name: fifengine;       Description: "[fifengine] Fifengine - Isometric Game Engine";    Types: full fife-only
-;Name: fifengine;       Description: "[fifengine] Fifengine - Isometric Game Engine";    Types: full fife-only fife-demos
+Name: fife-editor;     Description: "[dev-tools] Fifengine - Map Editor";               Types: full dev-tools
+;Name: dev-doc;         Description: "[dev-doc] Fifengine - Dev Manual";                Types: full fife-only
 Name: dependencies;    Description: "[fifengine] Dependencies";                         Types: full;
-;Name: demos;           Description: "[fifengine] Demos";                                Types: full fife-demos
+Name: demos;           Description: "[fifengine] Demos";                                Types: full fife-python-demos
+Name: tutorials;       Description: "[tutorials] Tutorials";                            Types: full fifengine-python-tutorials
+;Name: tutorials;       Description: "[tutorials] Tutorials";                            Types: full fifengine-python-tutorials fifengine-c++-tutorials
+;Name: atlas-creator    Description: "[dev-tools] Fifengine - Atlas Creator";            Types: full dev-tools
 Name: cmake;           Description: "[build tools] CMake - build system";               Types: full build-tools
 Name: "Python";        Description: "[build tools] Python - programming language";    
 Name: "Python\py27";   Description: "[build tools] Python v2.7";                        Types: full build-tools; Flags: exclusive
@@ -114,7 +123,12 @@ Source: "..\repackage\Python27\*";                        DestDir: "{app}\python
 Source: "..\repackage\Python35\*";                        DestDir: "{app}\python";                Flags: recursesubdirs ignoreversion; Components: "Python\py35"
 ; Fifengine below Python, because we are installing the python library into the Python installation folder
 Source: "..\repackage\libfife.win32-py2.7.msi"; DestDir: "{app}\libfife";               Flags: recursesubdirs;               Components: fifengine
-
+Source: "..\repackage\fife-editor\*";           DestDir: "{app}\fife-editor";           Flags: recursesubdirs ignoreversion; Components: fife-editor
+Source: "..\repackage\fife-python-demos\*";     DestDir: "{app}\fife-python-demos";     Flags: recursesubdirs ignoreversion; Components: demos
+;Source: "..\repackage\.pdf\*";                 DestDir: "{app}\";                      Flags: recursesubdirs ignoreversion; Components: dev-doc
+Source: "..\repackage\fife-python-tutorials\*"; DestDir: "{app}\fife-python-tutorials"; Flags: recursesubdirs ignoreversion; Components: tutorials
+;Source: "..\repackage\fife-c++-tutorials\*";   DestDir: "{app}\fife-c++-tutorials";    Flags: recursesubdirs ignoreversion; Components: tutorials
+;Source: "..\repackage\fifengine-atlas-creator\*"; DestDir: "{app}\fifengine-atlas-creator";    Flags: recursesubdirs ignoreversion; Components: atlas-creator
 
 ; Define items to run automatically on installation...
 [Run]
