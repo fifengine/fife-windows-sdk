@@ -16,6 +16,10 @@ pushd extracted
 
 if not exist %TARGET_DIR% (mkdir %TARGET_DIR%)
 
+echo.
+echo === Copying/Moving Build Tools into the folder %TARGET_DIR%
+echo.
+
 echo CMake 
 move "%EXTRACTED_DIR%\cmake" "%TARGET_DIR%"
 
@@ -37,28 +41,32 @@ xcopy /SIQY C:\Python35 "%TARGET_DIR%\Python35"
 rem echo TDM-GCC-MINGW
 rem move "%EXTRACTED_DIR%\mingw" "%TARGET_DIR%"
 
+echo.
+echo === Copying/Moving Fifengine Dependencies into the folder %TARGET_DIR%
+echo.
+
 echo Fifengine Dependencies
 move "%EXTRACTED_DIR%\fifengine-includes" "%TARGET_DIR%"
 
 echo Fifengine Python27 Installer 
 move "%EXTRACTED_DIR%\libfife.win32-py2.7.msi" "%TARGET_DIR%"
 
-echo Fifengine Editor
-move "%EXTRACTED_DIR%\fife-editor" "%TARGET_DIR%"
+echo Fifengine Mapeditor
+move "%EXTRACTED_DIR%\fife-editor*" "%TARGET_DIR%\fife-editor"
 
 echo Fifengine Python Demos
-move "%EXTRACTED_DIR%\fife-python-demos" "%TARGET_DIR%"
-
-rem echo Fifengine Dev Docs
-rem move "%EXTRACTED_DIR%\.pdf" "%TARGET_DIR%"
+move "%EXTRACTED_DIR%\fife-python-demos*" "%TARGET_DIR%\fife-python-demos"
 
 echo Fifengine Python Tutorials
-move "%EXTRACTED_DIR%\fife-python-tutorials" "%TARGET_DIR%"
+move "%EXTRACTED_DIR%\fife-python-tutorials*" "%TARGET_DIR%\fife-python-tutorials"
 
 rem echo Fifengine C++ Tutorials
-rem move "%EXTRACTED_DIR%\fife-c++-tutorials" "%TARGET_DIR%"
+rem move "%EXTRACTED_DIR%\fife-c++-tutorials*" "%TARGET_DIR%\fife-c++-tutorials"
 
 rem echo Fifengine Atlas Creator
-rem move "%EXTRACTED_DIR%\fifengine-atlas-creator" "%TARGET_DIR%"
+rem move "%EXTRACTED_DIR%\fifengine-atlas-creator*" "%TARGET_DIR%\fifengine-atlas-creator"
+
+rem echo Fifengine Documentations
+rem move "%EXTRACTED_DIR%\*.pdf" "%TARGET_DIR%\docs"
 
 popd
