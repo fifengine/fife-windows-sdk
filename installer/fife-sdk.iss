@@ -103,12 +103,12 @@ Name: "custom";                     Description: "Custom installation"; Flags: i
 [Components]
 Name: fifengine;       Description: "[fifengine] Fifengine - Isometric Game Engine";    Types: full fife-only
 Name: dependencies;    Description: "[fifengine] Dependencies";                         Types: full;
-;Name: docs;           Description: "[manuals] Fifengine - Documentations";             Types: full fife-only 
+;Name: docs;            Description: "[manuals] Fifengine - Documentations";             Types: full fife-only 
 Name: mapeditor;       Description: "[dev tools] Fifengine - Mapeditor";                Types: full mapeditor
 Name: demos;           Description: "[fifengine] Demos";                                Types: full fife-python-demos
 Name: tutorials;       Description: "[tutorials] Tutorials";                            Types: full fifengine-python-tutorials
 ;Name: tutorials;       Description: "[tutorials] Tutorials";                            Types: full fifengine-python-tutorials fifengine-c++-tutorials
-;Name: atlascreator    Description: "[dev tools] Fifengine - Atlas Creator";            Types: full fifengine-atlas-creator
+;Name: atlascreator     Description: "[dev tools] Fifengine - Atlas Creator";            Types: full fifengine-atlas-creator
 Name: cmake;           Description: "[build tools] CMake - build system";               Types: full build-tools
 Name: "Python";        Description: "[build tools] Python - programming language";    
 Name: "Python\py27";   Description: "[build tools] Python v2.7";                        Types: full build-tools; Flags: exclusive
@@ -123,12 +123,12 @@ Source: "..\repackage\Python27\*";              DestDir: "{app}\python";        
 Source: "..\repackage\Python35\*";              DestDir: "{app}\python";                Flags: recursesubdirs ignoreversion; Components: "Python\py35"
 ; Fifengine below Python, because we are installing the python library into the Python installation folder
 Source: "..\repackage\libfife.win32-py2.7.msi"; DestDir: "{app}\libfife";               Flags: recursesubdirs;               Components: fifengine
-Source: "..\repackage\fife-editor\*";           DestDir: "{app}\fife-editor";           Flags: recursesubdirs ignoreversion; Components: mapeditor
-Source: "..\repackage\fife-python-demos\*";     DestDir: "{app}\fife-python-demos";     Flags: recursesubdirs ignoreversion; Components: demos
-;Source: "..\repackage\docs\*";                 DestDir: "{app}\docs";                  Flags: recursesubdirs ignoreversion; Components: devdoc
-Source: "..\repackage\fife-python-tutorials\*"; DestDir: "{app}\fife-python-tutorials"; Flags: recursesubdirs ignoreversion; Components: tutorials
-;Source: "..\repackage\fife-c++-tutorials\*";   DestDir: "{app}\fife-c++-tutorials";    Flags: recursesubdirs ignoreversion; Components: tutorials
-;Source: "..\repackage\fifengine-atlas-creator\*"; DestDir: "{app}\fifengine-atlas-creator";    Flags: recursesubdirs ignoreversion; Components: atlascreator
+Source: "..\repackage\mapeditor\*";             DestDir: "{app}\mapeditor";             Flags: recursesubdirs ignoreversion; Components: mapeditor
+Source: "..\repackage\python-demos\*";          DestDir: "{app}\python-demos";          Flags: recursesubdirs ignoreversion; Components: demos
+Source: "..\repackage\python-tutorials\*";      DestDir: "{app}\python-tutorials";      Flags: recursesubdirs ignoreversion; Components: tutorials
+;Source: "..\repackage\fife-c++-tutorials\*";   DestDir: "{app}\cpp-tutorials";         Flags: recursesubdirs ignoreversion; Components: tutorials
+;Source: "..\repackage\atlas-creator\*";        DestDir: "{app}\image-atlas-creator";   Flags: recursesubdirs ignoreversion; Components: atlascreator
+;Source: "..\repackage\docs\*";                 DestDir: "{app}\docs";                  Flags: recursesubdirs ignoreversion; Components: docs
 
 ; Define items to run automatically on installation...
 [Run]

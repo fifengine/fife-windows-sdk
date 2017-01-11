@@ -13,35 +13,35 @@ https://ci.appveyor.com/api/buildjobs/dpurh33nh4a6ka4v/artifacts/libfife-depende
     dir=downloads
     out=libfife-dependencies.zip
 
-# Fifengine - Python Installer
+# Fifengine - Python Installer (libfife)
 https://ci.appveyor.com/api/buildjobs/dpurh33nh4a6ka4v/artifacts/libfife-0.4.0.win32-py2.7.msi
     dir=downloads
     out=libfife.win32-py2.7.msi
 
-# Fife Editor
+# Fifengine - Mapeditor
 https://github.com/fifengine/fifengine-editor/archive/master.zip
     dir=downloads
-    out=fife-editor.zip
+    out=fifengine-editor.zip
 
-# Fife Python Demos
+# Fifengine - Python Demos
 https://github.com/fifengine/fifengine-demos/archive/master.zip
     dir=downloads
-    out=fife-python-demos.zip
+    out=fifengine-demos.zip
 
-#Fife Engine Dev Docs (need some work)
-#Need to be done PDF?
-
-# Fife Engine Python Tutorials
+# Fifengine - Python Tutorials
 https://github.com/fifengine/python-tutorials/archive/master.zip
     dir=downloads
-    out=fife-python-tutorials.zip
+    out=python-tutorials.zip
 
-# Fife Engine C++ Tutorials
+# Fifengine - C++ Tutorials
 #https://github.com/fifengine/cpp-tutorials/archive/master.zip
 #    dir=downloads
-#    out=fife-c++-tutorials.zip
+#    out=cpp-tutorials.zip
 
-# Fife Engine Atlas Creator (need some work)
+# Fifengine - Atlas Creator
 #https://github.com/fifengine/fifengine-atlas-creator/archive/master.zip
 #    dir=downloads
-#    out=fife-atlas-creator.zip
+#    out=fifengine-atlas-creator.zip
+
+# Fifengine - Documentations
+#
