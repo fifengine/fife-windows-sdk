@@ -92,7 +92,7 @@ Name: "full";          Description: "Full installation (build-tools, engine, dep
 Name: "build-tools";   Description: "Build-tools only (CMake, Python, Boost, Swig)"
 Name: "fife-only";     Description: "Engine only"
 Name: "fife-python-demos";    Description: "Engine and Demos (demos)"
-Name: "Editor";        Description: "Fife Map Editor (tools)"
+Name: "editor";        Description: "Fife Map Editor (tools)"
 ;Name: "fifengine-dev-docs"; Description: "Fife Dev Manual (doc)"
 Name: "fifengine-python-tutorials"; Description: "Fife Engine Python Tutorials (tutorials)"
 ;Name: "fifengine-c++-tutorials"; Description: "Fife Engine C++ Tutorials (tutorials)"
@@ -102,13 +102,13 @@ Name: "custom";        Description: "Custom installation"; Flags: iscustom
 ; Define components to install
 [Components]
 Name: fifengine;       Description: "[fifengine] Fifengine - Isometric Game Engine";    Types: full fife-only
-Name: mapeditor;       Description: "[dev tools] Fifengine - Map Editor";               Types: full dev-tools
+Name: mapeditor;       Description: "[dev tools] Fifengine - Map Editor";               Types: full editor
 ;Name: devdoc;         Description: "[dev doc] Fifengine - Dev Manual";                Types: full fife-only
 Name: dependencies;    Description: "[fifengine] Dependencies";                         Types: full;
 Name: demos;           Description: "[fifengine] Demos";                                Types: full fife-python-demos
 Name: tutorials;       Description: "[tutorials] Tutorials";                            Types: full fifengine-python-tutorials
 ;Name: tutorials;       Description: "[tutorials] Tutorials";                            Types: full fifengine-python-tutorials fifengine-c++-tutorials
-;Name: atlascreator    Description: "[dev tools] Fifengine - Atlas Creator";            Types: full dev-tools
+;Name: atlascreator    Description: "[dev tools] Fifengine - Atlas Creator";            Types: full fifengine-atlas-creator
 Name: cmake;           Description: "[build tools] CMake - build system";               Types: full build-tools
 Name: "Python";        Description: "[build tools] Python - programming language";    
 Name: "Python\py27";   Description: "[build tools] Python v2.7";                        Types: full build-tools; Flags: exclusive
