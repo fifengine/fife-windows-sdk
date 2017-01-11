@@ -93,10 +93,10 @@ Name: "build-tools";   Description: "Build-tools only (CMake, Python, Boost, Swi
 Name: "fife-only";     Description: "Engine only"
 Name: "fife-python-demos";    Description: "Engine and Demos (demos)"
 Name: "Editor";        Description: "Fife Map Editor (tools)"
-;Name: "fifengine-dev-docs" Description: "Fife Dev Manual (doc)"
-Name: "fifengine-python-tutorials" Description: "Fife Engine Python Tutorials (tutorials)"
-;Name: "fifengine-c++-tutorials" Description: "Fife Engine C++ Tutorials (tutorials)"
-;Name: "fifengine-atlas-creator" Description: "Fife Engine Atlas Creator (tools)"
+;Name: "fifengine-dev-docs"; Description: "Fife Dev Manual (doc)"
+Name: "fifengine-python-tutorials"; Description: "Fife Engine Python Tutorials (tutorials)"
+;Name: "fifengine-c++-tutorials"; Description: "Fife Engine C++ Tutorials (tutorials)"
+;Name: "fifengine-atlas-creator"; Description: "Fife Engine Atlas Creator (tools)"
 Name: "custom";        Description: "Custom installation"; Flags: iscustom
 
 ; Define components to install
