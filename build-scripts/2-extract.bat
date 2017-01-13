@@ -26,11 +26,6 @@ echo Swig
 move "%TARGET_DIR%\swig*" "%TARGET_DIR%\swig"
 
 rem echo.
-rem echo Python 
-rem %ZIP% x ActivePython.zip -o%TARGET_DIR% > nul
-rem move "%TARGET_DIR%\ActivePython-*" "%TARGET_DIR%\python-installer"
-
-rem echo.
 rem echo TDM-GCC-MINGW
 rem %ZIP% x tdm-gcc.7z -o%TARGET_DIR% > nul
 rem move "%TARGET_DIR%\tdm-gcc-*" "%TARGET_DIR%\mingw"
@@ -46,6 +41,10 @@ echo Fifengine Dependencies
 echo.
 echo Fifengine Python27 Installer
 copy libfife.win32-py2.7.msi "%TARGET_DIR%\libfife.win32-py2.7.msi"
+
+echo.
+echo Fifengine Python34 Installer
+copy libfife.win32-py3.4.msi "%TARGET_DIR%\libfife.win32-py3.4.msi"
 
 echo.
 echo Fifengine Mapeditor
