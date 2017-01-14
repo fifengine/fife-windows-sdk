@@ -116,7 +116,7 @@ Name: "Python\py35";   Description: "[build tools] Python v3.5";                
 Name: swig;            Description: "[build tools] SWIG - interface generator";         Types: full build-tools; 
 
 [Files]
-Source: "..\repackage\fifengine-includes\*";    DestDir: "{app}\fifengine-includes";    Flags: recursesubdirs ignoreversion; Components: dependencies
+Source: "..\repackage\fifengine-includes\*";    DestDir: "{app}\fifengine-dependencies";Flags: recursesubdirs ignoreversion; Components: dependencies
 Source: "..\repackage\cmake\*";                 DestDir: "{app}\cmake";                 Flags: recursesubdirs ignoreversion; Components: cmake
 Source: "..\repackage\swig\*";                  DestDir: "{app}\swig";                  Flags: recursesubdirs ignoreversion; Components: swig
 Source: "..\repackage\Python27\*";              DestDir: "{app}\python";                Flags: recursesubdirs ignoreversion; Components: "Python\py27"
