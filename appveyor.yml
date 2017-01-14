@@ -31,3 +31,7 @@ build_script:
 
 after_build:
   - appveyor PushArtifact "%APPVEYOR_BUILD_FOLDER%\_build\FifeSDK-%APPVEYOR_BUILD_VERSION%-Setup-VC14-x86.exe"
+
+deploy:
+ auth_token:
+   secure: EuVhVRiJe8gqDqVPM93Zp1CYTq3w4RJ7gAfgog3mmRq9ja2g7jb5GTG20V2eAwQ4
