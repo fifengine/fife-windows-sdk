@@ -33,7 +33,7 @@
 #define COPYRIGHT_YEAR        GetDateTimeString('yyyy', '', '');
 
 [Setup]
-AppId={{8A27DF0C-689B-4B76-8BFC-AFCDD90C1A31}
+AppId={{62CC969E-1D07-44D4-97C8-5BA818F07815}
 
 ; set application meta-data
 AppName={#APP_NAME}
