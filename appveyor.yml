@@ -32,6 +32,19 @@ build_script:
 after_build:
   - appveyor PushArtifact "%APPVEYOR_BUILD_FOLDER%\_build\FifeSDK-%APPVEYOR_BUILD_VERSION%-Setup-VC14-x86.exe"
 
+artifacts:
+  - path: _build\FifeSDK-$(appveyor_build_version)-Setup-VC14-x86.exe
+    name: FifeSDK-Setup-Executable
+
 deploy:
- auth_token:
-   secure: EuVhVRiJe8gqDqVPM93Zp1CYTq3w4RJ7gAfgog3mmRq9ja2g7jb5GTG20V2eAwQ4
+  release: FifeSDK-v$(appveyor_build_version)-VC14-x86
+  description: '[**Changelog**](https://github.com/fifengine/fife-windows-sdk/blob/master/CHANGELOG.md)'
+  provider: GitHub
+  auth_token:
+    secure: EuVhVRiJe8gqDqVPM93Zp1CYTq3w4RJ7gAfgog3mmRq9ja2g7jb5GTG20V2eAwQ4
+  artifact: FifeSDK-Setup-Executable
+  draft: false
+  prerelease: false
+  on:
+    branch: master                 # release from master branch only
+    appveyor_repo_tag: true        # deploy on tag push only
