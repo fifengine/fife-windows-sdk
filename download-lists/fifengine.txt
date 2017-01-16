@@ -9,19 +9,19 @@
 #
 
 # Fifengine Dependencies (libfife-dependencies)
-https://ci.appveyor.com/api/buildjobs/dpurh33nh4a6ka4v/artifacts/libfife-dependencies-dev-035b2e8-VC14.zip
+https://ci.appveyor.com/api/buildjobs/b3ccepyeir27mr0v/artifacts/libfife-dependencies-0.4.0-VC14.zip
     dir=downloads
     out=libfife-dependencies.zip
 
 # Fifengine - Python Installer (libfife for Python 2.7)
-https://ci.appveyor.com/api/buildjobs/dpurh33nh4a6ka4v/artifacts/libfife-0.4.0.win32-py2.7.msi
+https://ci.appveyor.com/api/buildjobs/b3ccepyeir27mr0v/artifacts/libfife-0.4.0.win32-py2.7.msi
     dir=downloads
     out=libfife.win32-py2.7.msi
 
 # Fifengine - Python Installer (libfife for Python 3.4)
-https://ci.appveyor.com/api/buildjobs/7l1d6yg3acy07loc/artifacts/libfife-0.4.0.win32-py3.4.msi
-    dir=downloads
-    out=libfife.win32-py3.4.msi
+#https://ci.appveyor.com/api/buildjobs/7l1d6yg3acy07loc/artifacts/libfife-0.4.0.win32-py3.4.msi
+#    dir=downloads
+#    out=libfife.win32-py3.4.msi
 
 # Fifengine - Mapeditor
 https://github.com/fifengine/fifengine-editor/archive/master.zip
