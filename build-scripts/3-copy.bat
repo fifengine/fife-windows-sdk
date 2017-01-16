@@ -34,9 +34,9 @@ echo Python27.dll
 rem add the mising python27.dll to the python folder
 copy C:\Windows\SysWOW64\python27.dll "%TARGET_DIR%\Python27"
 
-echo Python35
+rem echo Python35
 rem include Python from Appveyor
-xcopy /SIQY C:\Python35 "%TARGET_DIR%\Python35"
+rem xcopy /SIQY C:\Python35 "%TARGET_DIR%\Python35"
 
 rem echo TDM-GCC-MINGW
 rem move "%EXTRACTED_DIR%\mingw" "%TARGET_DIR%"
@@ -51,8 +51,8 @@ move "%EXTRACTED_DIR%\fifengine-includes" "%TARGET_DIR%"
 echo Fifengine Python27 Installer 
 move "%EXTRACTED_DIR%\libfife.win32-py2.7.msi" "%TARGET_DIR%"
 
-echo Fifengine Python34 Installer 
-move "%EXTRACTED_DIR%\libfife.win32-py3.4.msi" "%TARGET_DIR%"
+rem echo Fifengine Python34 Installer 
+rem move "%EXTRACTED_DIR%\libfife.win32-py3.4.msi" "%TARGET_DIR%"
 
 echo Fifengine Mapeditor
 move "%EXTRACTED_DIR%\fifengine-editor-master" "%TARGET_DIR%\mapeditor"
