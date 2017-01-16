@@ -29,9 +29,9 @@ rd /s /q "..\repackage\Python27\Tools"
 rm       "..\repackage\Python27\NEWS.txt"
 rm       "..\repackage\Python27\w9xpopen.exe"
 
-echo.
-echo Python35
-rd /s /q "..\repackage\Python35\Doc"
-rd /s /q "..\repackage\Python35\tcl"
+rem echo.
+rem echo Python35
+rem rd /s /q "..\repackage\Python35\Doc"
+rem rd /s /q "..\repackage\Python35\tcl"
 
 popd
