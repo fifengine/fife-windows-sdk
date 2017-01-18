@@ -2,6 +2,6 @@
 
 Fetches all required packages for working with fifengine, including build-tools and dependencies. Builds "SDK" installers on Appveyor and deploys them to Github Releases.
 
-[Download](https://ci.appveyor.com/project/LinuxDonald/fife-windows-sdk/branch/master/artifacts)
+[Download](https://github.com/fifengine/fife-windows-sdk/releases)
 
 [Documentation](https://fifengine.github.io/fifengine-docs/developer-manual/en/#_fife_windows_sdk)
