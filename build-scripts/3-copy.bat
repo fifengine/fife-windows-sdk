@@ -35,8 +35,8 @@ rem add the mising python27.dll to the python folder
 copy C:\Windows\SysWOW64\python27.dll "%TARGET_DIR%\Python27"
 
 echo Copy needed dlls vcruntime140.dll msvcp140.dll
-copy "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\redist\x86\Microsoft.VC140.CRT\vcruntime140.dll" "%TARGET_DIR%\Python27\Lib\site-packages\fife"
-copy "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\redist\x86\Microsoft.VC140.CRT\msvcp140.dll" "%TARGET_DIR%\Python27\Lib\site-packages\fife"
+copy "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\redist\x86\Microsoft.VC140.CRT\vcruntime140.dll" "%TARGET_DIR%\Python27\Lib\site-packages\fife\vcruntime140.dll"
+copy "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\redist\x86\Microsoft.VC140.CRT\msvcp140.dll" "%TARGET_DIR%\Python27\Lib\site-packages\fife\msvcp140.dll"
 
 rem echo Python35
 rem include Python from Appveyor
