@@ -209,7 +209,7 @@ const
 
   { Visual C++ 2015 Redistributable 14.0.24215.1 }
   VC_2015_REDIST_X86 = '{e2803110-78b3-4664-a479-3611a381656a}';
-  VC_2015_REDIST_X64 = '{d992c12e-cab2-426f-bde3-fb8c53950b0d}';
+;  VC_2015_REDIST_X64 = '{d992c12e-cab2-426f-bde3-fb8c53950b0d}';
 
 function MsiQueryProductState(szProduct: string): INSTALLSTATE;
   external 'MsiQueryProductState{#AW}@msi.dll stdcall';
@@ -219,7 +219,7 @@ begin
   Result := MsiQueryProductState(ProductID) = INSTALLSTATE_DEFAULT;
 end;
 
-function VCRedistNeedsInstall: Boolean;
+function VCRedistNeedsInstall;
 begin
   { here the Result must be True when you need to install your VCRedist }
   { or False when you don't need to, so now it's upon you how you build }
