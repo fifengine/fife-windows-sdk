@@ -102,7 +102,7 @@ Name: "custom";                     Description: "Custom installation"; Flags: i
 ; Define components to install
 [Components]
 Name: fifengine;       Description: "[fifengine] Fifengine - Isometric Game Engine";    Types: full fife-only
-Name: dependencies;    Description: "[fifengine] Dependencies";                         Types: full;
+Name: dependencies;    Description: "[fifengine] Dependencies";                         Types: full
 ;Name: docs;            Description: "[manuals] Fifengine - Documentations";             Types: full fife-only
 Name: mapeditor;       Description: "[dev tools] Fifengine - Mapeditor";                Types: full mapeditor
 Name: demos;           Description: "[fifengine] Demos";                                Types: full fife-python-demos
@@ -112,9 +112,9 @@ Name: tutorials;       Description: "[tutorials] Tutorials";                    
 Name: cmake;           Description: "[build tools] CMake - build system";               Types: full build-tools
 Name: "Python";        Description: "[build tools] Python - programming language";
 Name: "Python\py27";   Description: "[build tools] Python v2.7";                        Types: full build-tools; Flags: exclusive
-;Name: "Python\py35";   Description: "[build tools] Python v3.5";                        Types: full build-tools;
-Name: swig;            Description: "[build tools] SWIG - interface generator";         Types: full build-tools;
-Name: vcredist2015;    Description: "[dep libs] VCRedist2015";                           Types: full fife-only build-tools;
+;Name: "Python\py35";   Description: "[build tools] Python v3.5";                        Types: full build-tools
+Name: swig;            Description: "[build tools] SWIG - interface generator";         Types: full build-tools
+Name: vcredist2015;    Description: "[dep libs] VCRedist2015";                           Types: full fife-only build-tools
 
 [Files]
 Source: "..\repackage\fifengine-includes\*";    DestDir: "{app}\fifengine-dependencies";Flags: recursesubdirs ignoreversion; Components: dependencies
@@ -157,11 +157,11 @@ Type: filesandordirs; Name: "{app}\python"
 ; A registry change needs the following directive: [SETUP] ChangesEnvironment=yes
 ;
 ; add path to Python
-;Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python')); Components: Python\py27 or Python\py35;
-Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python')); Components: Python\py27;
+;Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python')); Components: Python\py27 or Python\py35
+Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python')); Components: Python\py27
 ;
 ; add path to libfife
-Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python\Lib\site-packages\fife"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python\Lib\site-packages\fife')); Components: fifengine;
+Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python\Lib\site-packages\fife"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python\Lib\site-packages\fife')); Components: fifengine
 ;
 ; Create File Association
 Root: HKCR; Subkey: ".py";                            ValueType: string; ValueName: ""; ValueData: "Python.File"; Flags: uninsdeletevalue
