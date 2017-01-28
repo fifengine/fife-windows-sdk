@@ -131,7 +131,7 @@ Source: "..\repackage\python-tutorials\*";      DestDir: "{app}\python-tutorials
 ;Source: "..\repackage\fife-c++-tutorials\*";   DestDir: "{app}\cpp-tutorials";          Flags: recursesubdirs ignoreversion; Components: tutorials
 ;Source: "..\repackage\atlas-creator\*";        DestDir: "{app}\image-atlas-creator";    Flags: recursesubdirs ignoreversion; Components: atlascreator
 ;Source: "..\repackage\docs\*";                 DestDir: "{app}\docs";                   Flags: recursesubdirs ignoreversion; Components: docs
-Source: "..\repackage\vc_redist.x86.exe";       DestDir: "{app}\deps";                  Flags: recursesubdirs;               Components: Python\py27 and fifengine and dependencies
+Source: "..\repackage\vc_redist.x86.exe";       DestDir: "{tmp}";                       Flags: deleteafterinstall;           Components: Python\py27 and fifengine and dependencies
 
 ; Define items to run automatically on installation...
 [Run]
@@ -139,7 +139,7 @@ Source: "..\repackage\vc_redist.x86.exe";       DestDir: "{app}\deps";          
 Filename: "msiexec.exe"; Parameters: "/i ""{app}\libfife\libfife.win32-py2.7.msi"" TARGETDIR=""{app}\python"" /qn"; StatusMsg: "Installing libFife for Python2.7"; Components: Python\py27 and fifengine
 ; install "libfife for python3.4" only when "py34 and fifengine" are selected + install silently into the target dir
 ;Filename: "msiexec.exe"; Parameters: "/i ""{app}\libfife\libfife.win32-py3.4.msi"" TARGETDIR=""{app}\python"" /qn"; StatusMsg: "Installing libFife for Python3.4"; Components: Python\py27 and fifengine
-Filename: "{app}\deps\vc_redist.x86.exe"; StatusMsg: "VCRedist2015 package"
+Filename: "{tmp}\vc_redist.x86.exe"; Parameters: "/q /norestart"; Check: VCRedistNeedsInstall; StatusMsg: "Installing VC++ redistributables..."
 
 ; Define items to run automatically on un-installation...
 [UninstallRun]
