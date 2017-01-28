@@ -114,7 +114,7 @@ Name: "Python";        Description: "[build tools] Python - programming language
 Name: "Python\py27";   Description: "[build tools] Python v2.7";                        Types: full build-tools; Flags: exclusive
 ;Name: "Python\py35";   Description: "[build tools] Python v3.5";                        Types: full build-tools;
 Name: swig;            Description: "[build tools] SWIG - interface generator";         Types: full build-tools;
-Name: vcredist2015;    Description: "[dep libs] VCRedist2015;                           Types: full fife-only build-tools;
+Name: vcredist2015;    Description: "[dep libs] VCRedist2015";                           Types: full fife-only build-tools;
 
 [Files]
 Source: "..\repackage\fifengine-includes\*";    DestDir: "{app}\fifengine-dependencies";Flags: recursesubdirs ignoreversion; Components: dependencies
