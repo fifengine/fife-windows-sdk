@@ -207,14 +207,7 @@ const
   INSTALLSTATE_ABSENT = 2;       { The product is installed for a different user. }
   INSTALLSTATE_DEFAULT = 5;      { The product is installed for the current user. }
 
-  { Visual C++ 2015 Redistributable 14.0.23026 }
-  VC_2015_REDIST_X86_MIN = '{A2563E55-3BEC-3828-8D67-E5E8B9E8B675}';
-;  VC_2015_REDIST_X64_MIN = '{0D3E9E15-DE7A-300B-96F1-B4AF12B96488}';
-
-  VC_2015_REDIST_X86_ADD = '{BE960C1C-7BAD-3DE6-8B1A-2616FE532845}';
-;  VC_2015_REDIST_X64_ADD = '{BC958BD2-5DAC-3862-BB1A-C1BE0790438D}';
-
-;  { Visual C++ 2015 Redistributable 14.0.24210 }
+  { Visual C++ 2015 Redistributable 14.0.24210 }
 ;  VC_2015_REDIST_X86 = '{8FD71E98-EE44-3844-9DAD-9CB0BBBC603C}';
 ;  VC_2015_REDIST_X64 = '{C0B2C673-ECAA-372D-94E5-E89440D087AD}';
 
@@ -231,8 +224,6 @@ begin
   { here the Result must be True when you need to install your VCRedist }
   { or False when you don't need to, so now it's upon you how you build }
   { this statement, the following won't install your VC redist only when }
-  { the Visual C++ 2010 Redist (x86) and Visual C++ 2010 SP1 Redist(x86) }
-  { are installed for the current user }
-  Result := not (VCVersionInstalled(VC_2010_REDIST_X86) and
-    VCVersionInstalled(VC_2010_SP1_REDIST_X86));
+  { the Visual C++ 2015 Redist Update 3 (x86) is installed for the current user }
+  Result := not (VCVersionInstalled(VC_2015_REDIST_X86)
 end;
