@@ -4,8 +4,8 @@ version: 0.1.{build}
 # cache the "downloads" folder in the build folder
 # refresh cache, if appveyor.yml changes
 # trigger cache refresh line: x
-cache:
-  - downloads -> appveyor.yml
+#cache:
+#  - downloads -> appveyor.yml
 
 # scripts that are called at very beginning, before repo cloning
 init:
