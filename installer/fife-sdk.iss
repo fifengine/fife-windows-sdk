@@ -219,11 +219,7 @@ begin
   Result := MsiQueryProductState(ProductID) = INSTALLSTATE_DEFAULT;
 end;
 
-function VCRedistNeedsInstall;
+function VCRedistNeedsInstall: Boolean;
 begin
-  { here the Result must be True when you need to install your VCRedist }
-  { or False when you don't need to, so now it's upon you how you build }
-  { this statement, the following won't install your VC redist only when }
-  { the Visual C++ 2015 Redist Update 3 (x86) is installed for the current user }
-  Result := not (VCVersionInstalled(VC_2015_REDIST_X86)
+  Result := not (VCVersionInstalled(VC_2015_REDIST_X86));
 end;
