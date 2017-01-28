@@ -103,17 +103,18 @@ Name: "custom";                     Description: "Custom installation"; Flags: i
 [Components]
 Name: fifengine;       Description: "[fifengine] Fifengine - Isometric Game Engine";    Types: full fife-only
 Name: dependencies;    Description: "[fifengine] Dependencies";                         Types: full;
-;Name: docs;            Description: "[manuals] Fifengine - Documentations";             Types: full fife-only 
+;Name: docs;            Description: "[manuals] Fifengine - Documentations";             Types: full fife-only
 Name: mapeditor;       Description: "[dev tools] Fifengine - Mapeditor";                Types: full mapeditor
 Name: demos;           Description: "[fifengine] Demos";                                Types: full fife-python-demos
 Name: tutorials;       Description: "[tutorials] Tutorials";                            Types: full fifengine-python-tutorials
 ;Name: tutorials;       Description: "[tutorials] Tutorials";                            Types: full fifengine-python-tutorials fifengine-c++-tutorials
 ;Name: atlascreator     Description: "[dev tools] Fifengine - Atlas Creator";            Types: full fifengine-atlas-creator
 Name: cmake;           Description: "[build tools] CMake - build system";               Types: full build-tools
-Name: "Python";        Description: "[build tools] Python - programming language";    
+Name: "Python";        Description: "[build tools] Python - programming language";
 Name: "Python\py27";   Description: "[build tools] Python v2.7";                        Types: full build-tools; Flags: exclusive
 ;Name: "Python\py35";   Description: "[build tools] Python v3.5";                        Types: full build-tools;
-Name: swig;            Description: "[build tools] SWIG - interface generator";         Types: full build-tools; 
+Name: swig;            Description: "[build tools] SWIG - interface generator";         Types: full build-tools;
+Name: vcredist2015;    Description: "[dep libs] VCRedist2015;                           Types: full fife-only build-tools;
 
 [Files]
 Source: "..\repackage\fifengine-includes\*";    DestDir: "{app}\fifengine-dependencies";Flags: recursesubdirs ignoreversion; Components: dependencies
@@ -127,9 +128,10 @@ Source: "..\repackage\libfife.win32-py2.7.msi"; DestDir: "{app}\libfife";       
 Source: "..\repackage\mapeditor\*";             DestDir: "{app}\mapeditor";             Flags: recursesubdirs ignoreversion; Components: mapeditor
 Source: "..\repackage\python-demos\*";          DestDir: "{app}\python-demos";          Flags: recursesubdirs ignoreversion; Components: demos
 Source: "..\repackage\python-tutorials\*";      DestDir: "{app}\python-tutorials";      Flags: recursesubdirs ignoreversion; Components: tutorials
-;Source: "..\repackage\fife-c++-tutorials\*";   DestDir: "{app}\cpp-tutorials";         Flags: recursesubdirs ignoreversion; Components: tutorials
-;Source: "..\repackage\atlas-creator\*";        DestDir: "{app}\image-atlas-creator";   Flags: recursesubdirs ignoreversion; Components: atlascreator
-;Source: "..\repackage\docs\*";                 DestDir: "{app}\docs";                  Flags: recursesubdirs ignoreversion; Components: docs
+;Source: "..\repackage\fife-c++-tutorials\*";   DestDir: "{app}\cpp-tutorials";          Flags: recursesubdirs ignoreversion; Components: tutorials
+;Source: "..\repackage\atlas-creator\*";        DestDir: "{app}\image-atlas-creator";    Flags: recursesubdirs ignoreversion; Components: atlascreator
+;Source: "..\repackage\docs\*";                 DestDir: "{app}\docs";                   Flags: recursesubdirs ignoreversion; Components: docs
+Source: "..\repackage\vc_redist.x86.exe";       DestDir: "{app}\libfife";               Flags: recursesubdirs;               Components: Python\py27 and fifengine
 
 ; Define items to run automatically on installation...
 [Run]
@@ -137,6 +139,7 @@ Source: "..\repackage\python-tutorials\*";      DestDir: "{app}\python-tutorials
 Filename: "msiexec.exe"; Parameters: "/i ""{app}\libfife\libfife.win32-py2.7.msi"" TARGETDIR=""{app}\python"" /qn"; StatusMsg: "Installing libFife for Python2.7"; Components: Python\py27 and fifengine
 ; install "libfife for python3.4" only when "py34 and fifengine" are selected + install silently into the target dir
 ;Filename: "msiexec.exe"; Parameters: "/i ""{app}\libfife\libfife.win32-py3.4.msi"" TARGETDIR=""{app}\python"" /qn"; StatusMsg: "Installing libFife for Python3.4"; Components: Python\py27 and fifengine
+Filename: "{app}\libfife\vc_redist.x86.exe"; StatusMsg: "VCRedist2015 package"
 
 ; Define items to run automatically on un-installation...
 [UninstallRun]
