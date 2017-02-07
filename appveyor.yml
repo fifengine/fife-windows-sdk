@@ -29,6 +29,9 @@ before_build:
 build_script:
   - build-tools\innosetup\iscc /DAPP_VERSION=%APPVEYOR_BUILD_VERSION% installer\fife-sdk.iss
 
+after_build:
+  - appveyor PushArtifact "%APPVEYOR_BUILD_FOLDER%\_build\FifeSDK-v%APPVEYOR_BUILD_VERSION%-VC14-x86.exe"
+
 artifacts:
   - path: _build\FifeSDK-$(appveyor_build_version)-Setup-VC14-x86.exe
     name: FifeSDK-Installer
