@@ -22,7 +22,7 @@
 
 ; version is set here, when the version isn't passed to the compiler on invocation
 #ifndef APP_VERSION
-#define APP_VERSION          "0.1.0"
+#define APP_VERSION          "0.2.0"
 #endif
 
 #define APP_NAME             "FifeSDK"
@@ -65,7 +65,7 @@ WizardSmallImageFile=images\WizardSmallImage.bmp
 SetupIconFile=images\fife.ico
  
 ; this creates the installer executable in the build folder
-; for example: "_build\FifeSDK-0.4.0-Setup-VC14-x86.exe"
+; for example: "_build\FifeSDK-0.4.1-Setup-VC14-x86.exe"
 OutputBaseFilename={#APP_NAME}-{#APP_VERSION}-Setup-{#APP_COMPILER}-x86
 OutputDir=..\_build
 

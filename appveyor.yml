@@ -1,5 +1,5 @@
 # version format
-version: 0.1.{build}
+version: 0.2.{build}
 
 # cache the "downloads" folder in the build folder
 # refresh cache, if appveyor.yml changes
@@ -34,14 +34,16 @@ artifacts:
     name: FifeSDK-Installer
 
 deploy:
-  release: FifeSDK-v$(appveyor_build_version)-VC14-x86
-  description: '[**Changelog**](https://github.com/fifengine/fife-windows-sdk/blob/master/CHANGELOG.md)'
   provider: GitHub
-  auth_token:
-    secure: EuVhVRiJe8gqDqVPM93Zp1CYTq3w4RJ7gAfgog3mmRq9ja2g7jb5GTG20V2eAwQ4
+  release: FifeSDK-v$(appveyor_build_version)-VC14-x86
+  tag: FifeSDK-v$(appveyor_build_version)-VC14-x86
+  description: '[**Changelog**](https://github.com/fifengine/fife-windows-sdk/blob/master/CHANGELOG.md)'
   artifact: FifeSDK-Installer
   draft: false
   prerelease: false
+  force_update: true               # overwrite files of existing release on GitHub
   on:
     branch: master                 # release from master branch only
     appveyor_repo_tag: true        # deploy on tag push only
+  auth_token:
+    secure: EuVhVRiJe8gqDqVPM93Zp1CYTq3w4RJ7gAfgog3mmRq9ja2g7jb5GTG20V2eAwQ4
