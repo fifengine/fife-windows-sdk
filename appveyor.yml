@@ -36,7 +36,7 @@ artifacts:
 deploy:
   provider: GitHub
   release: FifeSDK-v$(appveyor_build_version)-VC14-x86
-  tag: FifeSDK-v$(appveyor_build_version)-VC14-x86
+  tag: $(APPVEYOR_REPO_TAG_NAME)
   description: '[**Changelog**](https://github.com/fifengine/fife-windows-sdk/blob/master/CHANGELOG.md)'
   artifact: FifeSDK-Installer
   draft: false
