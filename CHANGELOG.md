@@ -1,8 +1,11 @@
 # ChangeLog
 
+## [0.3.0]
+- added Python 3 Version of fifengine
+- added Fifechan Version ??
 
 ## [0.2.0]
-- added new fife version 0.4.1
+- added new fifengine version 0.4.1
 - added new fifechan version 0.1.4
 - added `Visual C++ 2015 Redistributable` to installer
 - fixed small bugs

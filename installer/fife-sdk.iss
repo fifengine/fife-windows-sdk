@@ -1,28 +1,29 @@
 ;
 ;          _\|/_
 ;          (o o)
-; +-----oOO-{_}-OOo------------------------------------------------------+
-; |                                                                      |
-; |  Flexible Isometric Free Engine - Inno Setup Script File             |
-; |  -------------------------------------------------------             |
-; |                                                                      |
-; |  Author:   Jens A. Koch <jakoch@web.de>                              |
-; |  License:  MIT                                                       |
-; |                                                                      |
-; |  For the full copyright and license information, please view         |
-; |  the LICENSE file that was distributed with this source code.        |
-; |                                                                      |
-; |  Note for developers                                                 |
-; |  -------------------                                                 |
-; |  A good resource for developing and understanding                    |
-; |  Inno Setup Script files is the official "Inno Setup Help".          |
-; |  Website:  http://jrsoftware.org/ishelp/index.php                    |
-; |                                                                      |
-; +---------------------------------------------------------------------<3
+; +-----oOO-{_}-OOo-----------------------------------------------------------------+
+; |                                                                                 |
+; |  Flexible Isometric Free Engine - Inno Setup Script File                        |
+; |  -------------------------------------------------------                        |
+; |                                                                                 |
+; |  Author:   Jens A. Koch <jakoch@web.de>                                         |
+; |  Co-Maintainer: Thomas Kowaliczek-Schmmer <thomas.kowaliczek-schmer@posteo.de>  |
+; |  License:  MIT                                                                  |
+; |                                                                                 |
+; |  For the full copyright and license information, please view                    |
+; |  the LICENSE file that was distributed with this source code.                   |
+; |                                                                                 |
+; |  Note for developers                                                            |
+; |  -------------------                                                            |
+; |  A good resource for developing and understanding                               |
+; |  Inno Setup Script files is the official "Inno Setup Help".                     |
+; |  Website:  http://jrsoftware.org/ishelp/index.php                               |
+; |                                                                                 |
+; +--------------------------------------------------------------------------------<3
 
 ; version is set here, when the version isn't passed to the compiler on invocation
 #ifndef APP_VERSION
-#define APP_VERSION          "0.2.0"
+#define APP_VERSION          "0.3.0"
 #endif
 
 #define APP_NAME             "FifeSDK"
@@ -112,7 +113,7 @@ Name: tutorials;       Description: "[tutorials] Tutorials";                    
 Name: cmake;           Description: "[build tools] CMake - build system";               Types: full build-tools
 Name: "Python";        Description: "[build tools] Python - programming language";
 Name: "Python\py27";   Description: "[build tools] Python v2.7";                        Types: full build-tools; Flags: exclusive
-;Name: "Python\py35";   Description: "[build tools] Python v3.5";                        Types: full build-tools
+Name: "Python\py34";   Description: "[build tools] Python v3.4";                        Types: full build-tools
 Name: swig;            Description: "[build tools] SWIG - interface generator";         Types: full build-tools
 Name: vcredist2015;    Description: "[dep libs] VCRedist2015";                           Types: full fife-only build-tools
 
@@ -121,10 +122,10 @@ Source: "..\repackage\fifengine-includes\*";    DestDir: "{app}\fifengine-depend
 Source: "..\repackage\cmake\*";                 DestDir: "{app}\cmake";                 Flags: recursesubdirs ignoreversion; Components: cmake
 Source: "..\repackage\swig\*";                  DestDir: "{app}\swig";                  Flags: recursesubdirs ignoreversion; Components: swig
 Source: "..\repackage\Python27\*";              DestDir: "{app}\python";                Flags: recursesubdirs ignoreversion; Components: "Python\py27"
-;Source: "..\repackage\Python35\*";              DestDir: "{app}\python";                Flags: recursesubdirs ignoreversion; Components: "Python\py35"
+Source: "..\repackage\Python34\*";              DestDir: "{app}\python";                Flags: recursesubdirs ignoreversion; Components: "Python\py34"
 ; Fifengine below Python, because we are installing the python library into the Python installation folder
 Source: "..\repackage\libfife.win32-py2.7.msi"; DestDir: "{app}\libfife";               Flags: recursesubdirs;               Components: Python\py27 and fifengine
-;Source: "..\repackage\libfife.win32-py3.4.msi"; DestDir: "{app}\libfife";               Flags: recursesubdirs;               Components: Python\py27 and fifengine
+Source: "..\repackage\libfife.win32-py3.4.msi"; DestDir: "{app}\libfife";               Flags: recursesubdirs;               Components: Python\py34 and fifengine
 Source: "..\repackage\mapeditor\*";             DestDir: "{app}\mapeditor";             Flags: recursesubdirs ignoreversion; Components: mapeditor
 Source: "..\repackage\python-demos\*";          DestDir: "{app}\python-demos";          Flags: recursesubdirs ignoreversion; Components: demos
 Source: "..\repackage\python-tutorials\*";      DestDir: "{app}\python-tutorials";      Flags: recursesubdirs ignoreversion; Components: tutorials
@@ -138,7 +139,7 @@ Source: "..\repackage\vc_redist.x86.exe";       DestDir: "{tmp}";               
 ; install "libfife for python2.7" only when "py27 and fifengine" are selected + install silently into the target dir
 Filename: "msiexec.exe"; Parameters: "/i ""{app}\libfife\libfife.win32-py2.7.msi"" TARGETDIR=""{app}\python"" /qn"; StatusMsg: "Installing libFife for Python2.7"; Components: Python\py27 and fifengine
 ; install "libfife for python3.4" only when "py34 and fifengine" are selected + install silently into the target dir
-;Filename: "msiexec.exe"; Parameters: "/i ""{app}\libfife\libfife.win32-py3.4.msi"" TARGETDIR=""{app}\python"" /qn"; StatusMsg: "Installing libFife for Python3.4"; Components: Python\py27 and fifengine
+Filename: "msiexec.exe"; Parameters: "/i ""{app}\libfife\libfife.win32-py3.4.msi"" TARGETDIR=""{app}\python"" /qn"; StatusMsg: "Installing libFife for Python3.4"; Components: Python\py34 and fifengine
 ; add the Parameters, WorkingDir and StatusMsg as you wish, just keep here
 ; the conditional installation Check
 Filename: "{tmp}\vc_redist.x86.exe"; Parameters: "/q /norestart"; Check: VCRedistNeedsInstall; StatusMsg: "Installing VC++ redistributables..."
@@ -146,8 +147,8 @@ Filename: "{tmp}\vc_redist.x86.exe"; Parameters: "/q /norestart"; Check: VCRedis
 ; Define items to run automatically on un-installation...
 [UninstallRun]
 ; un-install "libfife"
-Filename: "msiexec.exe"; Parameters: "/x ""{app}\libfife\libfife.win32-py2.7.msi"" /qn"; StatusMsg: "Uninstalling libFife for Python2.7"; Flags: runascurrentuser runhidden
-;Filename: "msiexec.exe"; Parameters: "/x ""{app}\libfife\libfife.win32-py3.4.msi"" /qn"; StatusMsg: "Uninstalling libFife for Python2.7"; Flags: runascurrentuser runhidden
+Filename: "msiexec.exe"; Parameters: "/x ""{app}\libfife\libfife.win32-py2.7.msi"" /qn"; StatusMsg: "Uninstalling libFife for Python 2.7"; Flags: runascurrentuser runhidden
+;Filename: "msiexec.exe"; Parameters: "/x ""{app}\libfife\libfife.win32-py3.4.msi"" /qn"; StatusMsg: "Uninstalling libFife for Python 3.4"; Flags: runascurrentuser runhidden
 
 [UninstallDelete]
 Type: filesandordirs; Name: "{app}\mapeditor"
@@ -159,8 +160,7 @@ Type: filesandordirs; Name: "{app}\python"
 ; A registry change needs the following directive: [SETUP] ChangesEnvironment=yes
 ;
 ; add path to Python
-;Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python')); Components: Python\py27 or Python\py35
-Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python')); Components: Python\py27
+Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python')); Components: Python\py27 or Python\py34
 ;
 ; add path to libfife
 Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python\Lib\site-packages\fife"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python\Lib\site-packages\fife')); Components: fifengine

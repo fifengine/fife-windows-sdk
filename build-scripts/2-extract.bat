@@ -42,9 +42,9 @@ echo.
 echo Fifengine Python27 Installer
 copy libfife.win32-py2.7.msi "%TARGET_DIR%\libfife.win32-py2.7.msi"
 
-rem echo.
-rem echo Fifengine Python34 Installer
-rem copy libfife.win32-py3.4.msi "%TARGET_DIR%\libfife.win32-py3.4.msi"
+echo.
+echo Fifengine Python34 Installer
+copy libfife.win32-py3.4.msi "%TARGET_DIR%\libfife.win32-py3.4.msi"
 
 echo.
 echo Fifengine Mapeditor

@@ -19,9 +19,9 @@ https://ci.appveyor.com/api/buildjobs/vb4ik800mqpc65s8/artifacts/dist%2Flibfife-
     out=libfife.win32-py2.7.msi
 
 # Fifengine - Python Installer (libfife for Python 3.4)
-#https://ci.appveyor.com/api/buildjobs/7l1d6yg3acy07loc/artifacts/libfife-0.4.0.win32-py3.4.msi
-#    dir=downloads
-#    out=libfife.win32-py3.4.msi
+https://ci.appveyor.com/api/buildjobs/vxfyyur9x8dpx69t/artifacts/dist%2Flibfife-0.4.1.win32-py3.4.msi
+    dir=downloads
+    out=libfife.win32-py3.4.msi
 
 # Fifengine - Mapeditor
 https://github.com/fifengine/fifengine-editor/archive/master.zip
