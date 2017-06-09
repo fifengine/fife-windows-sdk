@@ -148,7 +148,7 @@ Filename: "{tmp}\vc_redist.x86.exe"; Parameters: "/q /norestart"; Check: VCRedis
 [UninstallRun]
 ; un-install "libfife"
 Filename: "msiexec.exe"; Parameters: "/x ""{app}\libfife\libfife.win32-py2.7.msi"" /qn"; StatusMsg: "Uninstalling libFife for Python 2.7"; Flags: runascurrentuser runhidden
-;Filename: "msiexec.exe"; Parameters: "/x ""{app}\libfife\libfife.win32-py3.4.msi"" /qn"; StatusMsg: "Uninstalling libFife for Python 3.4"; Flags: runascurrentuser runhidden
+Filename: "msiexec.exe"; Parameters: "/x ""{app}\libfife\libfife.win32-py3.4.msi"" /qn"; StatusMsg: "Uninstalling libFife for Python 3.4"; Flags: runascurrentuser runhidden
 
 [UninstallDelete]
 Type: filesandordirs; Name: "{app}\mapeditor"
