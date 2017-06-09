@@ -84,6 +84,7 @@ ChangesAssociations=yes
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
+Name: "german";  MessagesFile: "compiler:Languages\German.isl"
 
 ; Define the types of installations
 ; The user gets a drop-down list to select one of these types.
