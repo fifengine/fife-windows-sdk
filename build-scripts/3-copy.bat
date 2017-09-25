@@ -42,6 +42,10 @@ echo Python34
 include Python from Appveyor
 xcopy /SIQY C:\Python34 "%TARGET_DIR%\Python34"
 
+echo Python34.dll
+rem add the mising python34.dll to the python folder
+copy C:\Windows\SysWOW64\python34.dll "%TARGET_DIR%\Python34"
+
 rem echo TDM-GCC-MINGW
 rem move "%EXTRACTED_DIR%\mingw" "%TARGET_DIR%"
 
