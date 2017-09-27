@@ -12,6 +12,15 @@ init:
   - date /T & time /T
   - git config --global core.autocrlf input
 
+install:
+  # Upgrade to the latest version of pip to avoid "out of date" warnings
+  # Python 3.4
+  - C:\Python34\scripts\pip.exe install --disable-pip-version-check --user --upgrade pip
+  - C:\Python34\scripts\pip.exe install future
+  # Python 2.7
+  - C:\Python27\scripts\pip.exe install --disable-pip-version-check --user --upgrade pip
+  - C:\Python27\scripts\pip.exe install future
+
 before_build: 
   # download
   - build-scripts\1-download.bat
