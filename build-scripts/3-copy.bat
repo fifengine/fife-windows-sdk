@@ -28,7 +28,7 @@ echo Swig
 move "%EXTRACTED_DIR%\swig" "%TARGET_DIR%"
 
 echo Python27
-rem include Python from Appveyor
+rem include Python 2.7 from Appveyor
 xcopy /SIQY C:\Python27 "%TARGET_DIR%\Python27"
 
 echo Python27.dll
@@ -39,7 +39,7 @@ echo Copy needed dlls installer
 copy "%LIBS%\vc_redist.x86.exe" "%TARGET_DIR%"
 
 echo Python34
-include Python from Appveyor
+rem include Python 3.4 from Appveyor
 xcopy /SIQY C:\Python34 "%TARGET_DIR%\Python34"
 
 echo Python34.dll
