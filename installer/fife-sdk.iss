@@ -113,7 +113,7 @@ Name: tutorials;       Description: "[tutorials] Tutorials";                    
 ;Name: atlascreator     Description: "[dev tools] Fifengine - Atlas Creator";            Types: full fifengine-atlas-creator
 Name: cmake;           Description: "[build tools] CMake - build system";               Types: full build-tools
 Name: "Python";        Description: "[build tools] Python - programming language";
-Name: "Python\py27";   Description: "[build tools] Python v2.7";                        Types: full build-tools; Flags: exclusive
+Name: "Python\py27";   Description: "[build tools] Python v2.7";                        Types: full build-tools
 Name: "Python\py34";   Description: "[build tools] Python v3.4";                        Types: full build-tools
 Name: swig;            Description: "[build tools] SWIG - interface generator";         Types: full build-tools
 Name: vcredist2015;    Description: "[dep libs] VCRedist2015";                           Types: full fife-only build-tools
