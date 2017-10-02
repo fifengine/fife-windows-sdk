@@ -171,15 +171,15 @@ Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData
 Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python34"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python34')); Components: Python\py34
 ;
 ; add path to libfife
-Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python27\Lib\site-packages\fife"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python27\Lib\site-packages\fife')); Components: fifengine\py2
-Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python34\Lib\site-packages\fife"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python34\Lib\site-packages\fife')); Components: fifengine\py3
+Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python27\Lib\site-packages\fife"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python27\Lib\site-packages\fife')); Components: fifengine\py27
+Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python34\Lib\site-packages\fife"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python34\Lib\site-packages\fife')); Components: fifengine\py34
 ;
 ; Create File Association
 Root: HKCR; Subkey: ".py";                            ValueType: string; ValueName: ""; ValueData: "Python.File"; Flags: uninsdeletevalue 
 Root: HKCR; Subkey: "Python.File";                    ValueType: string; ValueName: ""; ValueData: "Python File"; Flags: uninsdeletekey
 Root: HKCR; Subkey: "Python.File\DefaultIcon";        ValueType: string; ValueName: ""; ValueData: "{app}\python\DLLs\py.ico"
-Root: HKCR; Subkey: "Python.File\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\python27\python.exe"" ""%1"" %*" ; Components: fifengine\py2
-Root: HKCR; Subkey: "Python.File\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\python34\python.exe"" ""%1"" %*" ; Components: fifengine\py3
+Root: HKCR; Subkey: "Python.File\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\python27\python.exe"" ""%1"" %*" ; Components: fifengine\py27
+Root: HKCR; Subkey: "Python.File\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\python34\python.exe"" ""%1"" %*" ; Components: fifengine\py34
    
 [Code]
 // modification and path lookup helper for env PATH 
