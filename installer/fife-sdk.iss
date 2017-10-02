@@ -130,22 +130,22 @@ Source: "..\repackage\swig\*";                  DestDir: "{app}\swig";          
 Source: "..\repackage\Python27\*";              DestDir: "{app}\python27";              Flags: recursesubdirs ignoreversion; Components: "Python\py27"
 Source: "..\repackage\Python34\*";              DestDir: "{app}\python34";              Flags: recursesubdirs ignoreversion; Components: "Python\py34"
 ; Fifengine below Python, because we are installing the python library into the Python installation folder
-Source: "..\repackage\libfife.win32-py2.7.msi"; DestDir: "{app}\libfife27";             Flags: recursesubdirs;               Components: Python\py27 and fifengine\py2
-Source: "..\repackage\libfife.win32-py3.4.msi"; DestDir: "{app}\libfife34";             Flags: recursesubdirs;               Components: Python\py34 and fifengine\py3
+Source: "..\repackage\libfife.win32-py2.7.msi"; DestDir: "{app}\libfife27";             Flags: recursesubdirs;               Components: Python\py27 and fifengine\py27
+Source: "..\repackage\libfife.win32-py3.4.msi"; DestDir: "{app}\libfife34";             Flags: recursesubdirs;               Components: Python\py34 and fifengine\py34
 Source: "..\repackage\mapeditor\*";             DestDir: "{app}\mapeditor";             Flags: recursesubdirs ignoreversion; Components: mapeditor
 Source: "..\repackage\python-demos\*";          DestDir: "{app}\python-demos";          Flags: recursesubdirs ignoreversion; Components: demos
 Source: "..\repackage\python-tutorials\*";      DestDir: "{app}\python-tutorials";      Flags: recursesubdirs ignoreversion; Components: tutorials
 ;Source: "..\repackage\fife-c++-tutorials\*";   DestDir: "{app}\cpp-tutorials";         Flags: recursesubdirs ignoreversion; Components: tutorials
 ;Source: "..\repackage\atlas-creator\*";        DestDir: "{app}\image-atlas-creator";   Flags: recursesubdirs ignoreversion; Components: atlascreator
 ;Source: "..\repackage\docs\*";                 DestDir: "{app}\docs";                  Flags: recursesubdirs ignoreversion; Components: docs
-Source: "..\repackage\vc_redist.x86.exe";       DestDir: "{tmp}";                       Flags: deleteafterinstall;           Components: Python\py27 and Python\py34 and fifengine\py2 and fifengine\py3 and dependencies
+Source: "..\repackage\vc_redist.x86.exe";       DestDir: "{tmp}";                       Flags: deleteafterinstall;           Components: Python\py27 and Python\py34 and fifengine\py27 and fifengine\py34 and dependencies
 
 ; Define items to run automatically on installation...
 [Run]
 ; install "libfife for python2.7" only when "py27 and fifengine" are selected + install silently into the target dir
-Filename: "msiexec.exe"; Parameters: "/i ""{app}\libfife\libfife.win32-py2.7.msi"" TARGETDIR=""{app}\python"" /qn"; StatusMsg: "Installing libFife for Python2.7"; Components: Python\py27 and fifengine\py2
+Filename: "msiexec.exe"; Parameters: "/i ""{app}\libfife\libfife.win32-py2.7.msi"" TARGETDIR=""{app}\python"" /qn"; StatusMsg: "Installing libFife for Python2.7"; Components: Python\py27 and fifengine\py27
 ; install "libfife for python3.4" only when "py34 and fifengine" are selected + install silently into the target dir
-Filename: "msiexec.exe"; Parameters: "/i ""{app}\libfife\libfife.win32-py3.4.msi"" TARGETDIR=""{app}\python"" /qn"; StatusMsg: "Installing libFife for Python3.4"; Components: Python\py34 and fifengine\py3
+Filename: "msiexec.exe"; Parameters: "/i ""{app}\libfife\libfife.win32-py3.4.msi"" TARGETDIR=""{app}\python"" /qn"; StatusMsg: "Installing libFife for Python3.4"; Components: Python\py34 and fifengine\py34
 ; add the Parameters, WorkingDir and StatusMsg as you wish, just keep here
 ; the conditional installation Check
 Filename: "{tmp}\vc_redist.x86.exe"; Parameters: "/q /norestart"; Check: VCRedistNeedsInstall; StatusMsg: "Installing VC++ redistributables..."
