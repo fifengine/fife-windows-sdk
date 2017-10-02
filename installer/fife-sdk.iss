@@ -106,21 +106,22 @@ Name: "custom";                     Description: "Custom installation"; Flags: i
 
 ; Define components to install
 [Components]
-Name: fifengine\py27;               Description: "[fifengine] Fifengine - Isometric Game Engine";     Types: full-python2 fife-only-python2
-Name: fifengine\py34;               Description: "[fifengine] Fifengine - Isometric Game Engine";     Types: full-python3 fife-only-python3
-Name: dependencies;                 Description: "[fifengine] Dependencies";                         Types: full-python2 full-python3
-;Name: docs;                        Description: "[manuals] Fifengine - Documentations";             Types: full-python2 full-python3 fife-only-python2 fife-only-python3
-Name: mapeditor;                    Description: "[dev tools] Fifengine - Mapeditor";                Types: full-python2 mapeditor
-Name: demos;                        Description: "[fifengine] Demos";                                Types: full fife-python-demos
-Name: tutorials;                    Description: "[tutorials] Tutorials";                            Types: full fifengine-python-tutorials
-;Name: tutorials;                   Description: "[tutorials] Tutorials";                            Types: full fifengine-python-tutorials fifengine-c++-tutorials
-;Name: atlascreator                 Description: "[dev tools] Fifengine - Atlas Creator";            Types: full fifengine-atlas-creator
-Name: cmake;                        Description: "[build tools] CMake - build system";               Types: full build-tools
+Name: "Fifengine";                  Description: "[fifengine] Fifengine - Isometric Game Engine";
+Name: fifengine\py27;               Description: "[fifengine] Fifengine - Isometric Game Engine Python 2.7";    Types: full-python2 fife-only-python2
+Name: fifengine\py34;               Description: "[fifengine] Fifengine - Isometric Game Engine Python 3.4";    Types: full-python3 fife-only-python3
+Name: dependencies;                 Description: "[fifengine] Dependencies";                                    Types: full-python2 full-python3
+;Name: docs;                        Description: "[manuals] Fifengine - Documentations";                        Types: full-python2 full-python3 fife-only-python2 fife-only-python3
+Name: mapeditor;                    Description: "[dev tools] Fifengine - Mapeditor";                           Types: full-python2 mapeditor
+Name: demos;                        Description: "[fifengine] Demos";                                           Types: full-python2 fife-python-demos
+Name: tutorials;                    Description: "[tutorials] Tutorials";                                       Types: full-python2 fifengine-python-tutorials
+;Name: tutorials;                   Description: "[tutorials] Tutorials";                                       Types: full-python2 fifengine-python-tutorials fifengine-c++-tutorials
+;Name: atlascreator                 Description: "[dev tools] Fifengine - Atlas Creator";                       Types: full-python2 fifengine-atlas-creator
+Name: cmake;                        Description: "[build tools] CMake - build system";                          Types: full-python2 full-python3 build-tools-python2 build-tools-python3
 Name: "Python";                     Description: "[build tools] Python - programming language";
-Name: "Python\py27";                Description: "[build tools] Python v2.7";                        Types: full-python2 build-tools-python2
-Name: "Python\py34";                Description: "[build tools] Python v3.4";                        Types: full-python3 build-tools-python3
-Name: swig;                         Description: "[build tools] SWIG - interface generator";         Types: full-python2 full-python3 build-tools-python2 build-tools-python3
-Name: vcredist2015;                 Description: "[dep libs] VCRedist2015";                          Types: full-python2 full-python3 build-tools-python2 build-tools-python3
+Name: "Python\py27";                Description: "[build tools] Python v2.7";                                   Types: full-python2 build-tools-python2
+Name: "Python\py34";                Description: "[build tools] Python v3.4";                                   Types: full-python3 build-tools-python3
+Name: swig;                         Description: "[build tools] SWIG - interface generator";                    Types: full-python2 full-python3 build-tools-python2 build-tools-python3
+Name: vcredist2015;                 Description: "[dep libs] VCRedist2015";                                     Types: full-python2 full-python3 build-tools-python2 build-tools-python3
 
 [Files]
 Source: "..\repackage\fifengine-includes\*";    DestDir: "{app}\fifengine-dependencies";Flags: recursesubdirs ignoreversion; Components: dependencies
