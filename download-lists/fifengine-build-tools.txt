@@ -14,7 +14,7 @@ https://cmake.org/files/v3.9/cmake-3.9.3-win32-x86.zip
     out=cmake.zip
 
 # Swig
-https://github.com/swig/swig/archive/rel-3.0.12.zip
+http://prdownloads.sourceforge.net/swig/swigwin-3.0.12.zip
     dir=downloads
     out=swig.zip
 
