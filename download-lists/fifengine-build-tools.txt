@@ -9,7 +9,7 @@
 #
 
 # CMake - Build Tool
-https://cmake.org/files/v3.9/cmake-3.9.3-win32-x86.zip
+https://cmake.org/files/v3.10/cmake-3.10.1-win32-x86.zip
     dir=downloads
     out=cmake.zip
 
@@ -24,12 +24,12 @@ http://prdownloads.sourceforge.net/swig/swigwin-3.0.12.zip
 #    out=ActivePython.zip
 
 # Python 2.7
-#https://www.python.org/ftp/python/2.7.12/python-2.7.12.msi
+#https://www.python.org/ftp/python/2.7.14/python-2.7.14.msi
 #    dir=downloads
 #    out=Python27.zip
 
 # Python 3.5
-#https://www.python.org/ftp/python/3.4.0/python-3.4.0.msi
+#https://www.python.org/ftp/python/3.5.4/python-3.5.4.msi
 #    dir=downloads
 #    out=Python35.exe
 
