@@ -9,7 +9,7 @@
 #
 
 # CMake - Build Tool
-https://cmake.org/files/v3.10/cmake-3.10.2-win32-x86.zip
+https://cmake.org/files/v3.11/cmake-3.11.1-win32-x86.zip
     dir=downloads
     out=cmake.zip
 
@@ -24,14 +24,14 @@ http://prdownloads.sourceforge.net/swig/swigwin-3.0.12.zip
 #    out=ActivePython.zip
 
 # Python 2.7
-#https://www.python.org/ftp/python/2.7.14/python-2.7.14.msi
+#https://www.python.org/ftp/python/2.7.15/python-2.7.15.msi
 #    dir=downloads
 #    out=Python27.zip
 
-# Python 3.5
-#https://www.python.org/ftp/python/3.5.5/python-3.5.5.msi
+# Python 3.6
+#https://www.python.org/ftp/python/3.6.5/python-3.6.5.exe
 #    dir=downloads
-#    out=Python35.exe
+#    out=Python36.exe
 
 # TDM-GCC-Mingw - Compiler Toolchain - Original Installer Executable
 #http://sourceforge.net/projects/tdm-gcc/files/TDM-GCC%20Installer/tdm-gcc-5.1.0-3.exe/download

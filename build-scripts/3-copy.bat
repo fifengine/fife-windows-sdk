@@ -38,13 +38,13 @@ copy C:\Windows\SysWOW64\python27.dll "%TARGET_DIR%\Python27"
 echo Copy needed dlls installer
 copy "%LIBS%\vc_redist.x86.exe" "%TARGET_DIR%"
 
-echo Python34
-rem include Python 3.4 from Appveyor
-xcopy /SIQY C:\Python34 "%TARGET_DIR%\Python34"
+echo Python36
+rem include Python 3.6 from Appveyor
+xcopy /SIQY C:\Python36 "%TARGET_DIR%\Python34"
 
-echo Python34.dll
-rem add the mising python34.dll to the python folder
-copy C:\Windows\SysWOW64\python34.dll "%TARGET_DIR%\Python34"
+echo Python36.dll
+rem add the mising python36.dll to the python folder
+copy C:\Windows\SysWOW64\python36.dll "%TARGET_DIR%\Python36"
 
 rem echo TDM-GCC-MINGW
 rem move "%EXTRACTED_DIR%\mingw" "%TARGET_DIR%"
@@ -56,11 +56,11 @@ echo.
 echo Fifengine Dependencies
 move "%EXTRACTED_DIR%\fifengine-includes" "%TARGET_DIR%"
 
-echo Fifengine Python27 Installer 
+echo Fifengine Python27 Installer
 move "%EXTRACTED_DIR%\libfife.win32-py2.7.msi" "%TARGET_DIR%"
 
-echo Fifengine Python34 Installer 
-move "%EXTRACTED_DIR%\libfife.win32-py3.4.msi" "%TARGET_DIR%"
+echo Fifengine Python36 Installer
+move "%EXTRACTED_DIR%\libfife.win32-py3.6.msi" "%TARGET_DIR%"
 
 echo Fifengine Mapeditor
 move "%EXTRACTED_DIR%\fifengine-editor-master" "%TARGET_DIR%\mapeditor"

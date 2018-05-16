@@ -31,7 +31,7 @@ rm       "..\repackage\Python27\w9xpopen.exe"
 
 echo.
 echo Python34
-rd /s /q "..\repackage\Python34\Doc"
-rd /s /q "..\repackage\Python34\tcl"
+rd /s /q "..\repackage\Python36\Doc"
+rd /s /q "..\repackage\Python36\tcl"
 
 popd

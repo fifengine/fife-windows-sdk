@@ -43,8 +43,8 @@ echo Fifengine Python27 Installer
 copy libfife.win32-py2.7.msi "%TARGET_DIR%\libfife.win32-py2.7.msi"
 
 echo.
-echo Fifengine Python34 Installer
-copy libfife.win32-py3.4.msi "%TARGET_DIR%\libfife.win32-py3.4.msi"
+echo Fifengine Python36 Installer
+copy libfife.win32-py3.6.msi "%TARGET_DIR%\libfife.win32-py3.6.msi"
 
 echo.
 echo Fifengine Mapeditor

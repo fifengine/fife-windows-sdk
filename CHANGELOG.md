@@ -1,8 +1,10 @@
 # ChangeLog
 
 ## [0.3.0]
+- update build tools to lastest version
+- added new fifengine version 0.4.1
 - added Python 3 Version of fifengine
-- added Fifechan Version ??
+- added Fifechan Version 0.1.5
 
 ## [0.2.0]
 - added new fifengine version 0.4.1
