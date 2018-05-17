@@ -63,7 +63,7 @@ echo Fifengine Python36 Installer
 move "%EXTRACTED_DIR%\libfife.win32-py3.6.msi" "%TARGET_DIR%"
 
 echo Fifengine Mapeditor
-move "%EXTRACTED_DIR%\fifengine-editor-master" "%TARGET_DIR%\mapeditor"
+move "%EXTRACTED_DIR%\fife-editor-cegui-master" "%TARGET_DIR%\mapeditor"
 
 echo Fifengine Python Demos
 move "%EXTRACTED_DIR%\fifengine-demos-master" "%TARGET_DIR%\python-demos"
