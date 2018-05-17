@@ -24,7 +24,7 @@ https://ci.appveyor.com/api/buildjobs/jq9nwwk6gc7al7ba/artifacts/dist%2Flibfife-
     out=libfife.win32-py3.6.msi
 
 # Fifengine - Mapeditor
-https://github.com/fifengine/fifengine-editor/archive/master.zip
+https://github.com/fifengine/fife-editor-cegui/archive/master.zip
     dir=downloads
     out=fifengine-editor.zip
 
