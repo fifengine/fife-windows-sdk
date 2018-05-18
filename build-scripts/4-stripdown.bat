@@ -30,7 +30,7 @@ rm       "..\repackage\Python27\NEWS.txt"
 rm       "..\repackage\Python27\w9xpopen.exe"
 
 echo.
-echo Python34
+echo Python36
 rd /s /q "..\repackage\Python36\Doc"
 rd /s /q "..\repackage\Python36\tcl"
 

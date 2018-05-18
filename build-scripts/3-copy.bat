@@ -40,7 +40,7 @@ copy "%LIBS%\vc_redist.x86.exe" "%TARGET_DIR%"
 
 echo Python36
 rem include Python 3.6 from Appveyor
-xcopy /SIQY C:\Python36 "%TARGET_DIR%\Python34"
+xcopy /SIQY C:\Python36 "%TARGET_DIR%\Python36"
 
 echo Python36.dll
 rem add the mising python36.dll to the python folder
