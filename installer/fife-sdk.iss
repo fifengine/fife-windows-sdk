@@ -144,7 +144,7 @@ Source: "..\repackage\python-tutorials\*";      DestDir: "{app}\python-tutorials
 [Run]
 ; install "libfife for python2.7" only when "py27 and fifengine" are selected + install silently into the target dir
 Filename: "msiexec.exe"; Parameters: "/i ""{app}\libfife\libfife.win32-py2.7.msi"" TARGETDIR=""{app}\python"" /qn"; StatusMsg: "Installing libFife for Python2.7"; Components: fifengine\py27
-; install "libfife for python3.6" only when "py34 and fifengine" are selected + install silently into the target dir
+; install "libfife for python3.6" only when "py36 and fifengine" are selected + install silently into the target dir
 Filename: "msiexec.exe"; Parameters: "/i ""{app}\libfife\libfife.win32-py3.6.msi"" TARGETDIR=""{app}\python"" /qn"; StatusMsg: "Installing libFife for Python3.6"; Components: fifengine\py36
 ; add the Parameters, WorkingDir and StatusMsg as you wish, just keep here
 ; the conditional installation Check
@@ -168,7 +168,7 @@ Type: filesandordirs; Name: "{app}\python36"
 ;
 ; add path to Python
 ;Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python27"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python27')); Components: Python\py27
-;Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python34"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python36')); Components: Python\py36
+;Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python36"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python36')); Components: Python\py36
 ;
 ; add path to libfife
 ;Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python27\Lib\site-packages\fife"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python27\Lib\site-packages\fife')); Components: fifengine\py27
