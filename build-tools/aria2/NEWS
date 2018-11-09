@@ -1,59 +1,52 @@
-aria2 1.27.1
+aria2 1.34.0
 ============
 
 Release Note
 ------------
 
-This release fixes the packaging bug that libssl_compat.h is missing
-in the tar balls.
+This release fixes several bugs.  See Changes for details.
 
 Changes
 -------
 
-* Add missing libssl_compat.h to SRCS
+* mingw: Use SetFileTime to avoid DST adjustment
 
-  GH-744
+  GH-1079
 
-
+* UnknownLengthPieceStorage: return piece length
 
-aria2 1.27.0
-============
+  show something in console status when downloading items
+  with unknown content length
 
-Release Note
-------------
+  Patch from kwkam
 
-This release fixes bug which may cause crash if UDP tracker is used.
-It adds new option --save-not-found which prevents downloads failed by
-"not found" error from being saved in session file.
+  GH-1065
 
-Changes
--------
+* WinConsoleFile: fix colour properly
 
-* Hard-disable openssl in osx build
+  Patch from kwkam
 
-  Closes #739
+  GH-1058
 
-* Fix possible cause of crash if UDP tracker is used
+* util: also detect xdg_* env variables on windows
 
-* Remove custom ftruncate64 for Android
+  so if people like to keep FHS they could define XDG_* for it
 
-  The latest NDK versions support ftruncate64, so building a local
-  copy of ftruncate64 is no longer needed.
+  Patch from kwkam
 
-  Also, the arm and x86 builds of ftruncate64 failed when targeting
-  API level 21 or higher, as they include <linux/err.h> which are not
-  present starting from API level 21.
+  GH-1057
 
-  Patch from Fredrik Fornwall
+* MacOS: Allocate once (apfs compat)
 
-* Fix typo found by Debian's Lintian
+* Fix bug that signal handler does not work with libaria2
 
-* Add --save-not-found option
+  This commit fixes the bug that signal handler does not work with
+  libaria2 when aria2::RUN_ONCE is passed to aria2::run().
 
-* Update comment to match code
+  GH-1053
 
-  Patch from Torbjörn Lönnemark
+* Retry on HTTP 502
 
-* WinTLS: Better errors (from WSA)
+  Patch from nicolov
 
-* Compile with openssl 1.1.0
+  GH-1038
