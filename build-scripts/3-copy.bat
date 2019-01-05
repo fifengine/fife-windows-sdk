@@ -4,7 +4,7 @@ echo.
 echo == Copy
 echo.
 
-set ZIP="..\build-tools\7zip\7za.exe"
+set ZIP="..\build-tools\7zip\7z.exe"
 set EXTRACTED_DIR="..\extracted"
 set TARGET_DIR="..\repackage"
 set LIBS="..\libs\"
