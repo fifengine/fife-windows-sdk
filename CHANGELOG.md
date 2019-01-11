@@ -1,10 +1,12 @@
 # ChangeLog
 
-## [0.3.0]
+## [0.4.2]
+- change version number to the same as the engine
+- update third party libs
+- update fifechan to 0.1.5
+- update fifengine to 0.4.2
 - update build tools to lastest version
-- added new fifengine version 0.4.1
 - added Python 3 Version of fifengine
-- added Fifechan Version 0.1.5
 
 ## [0.2.0]
 - added new fifengine version 0.4.1
