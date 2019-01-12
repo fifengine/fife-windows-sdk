@@ -4,8 +4,8 @@ echo.
 echo == Extract
 echo.
 
-set ZIP="..\build-tools\7zip\7z.exe"
-set TARGET_DIR="..\extracted"
+set ZIP="%CD%\build-tools\7zip\7z.exe"
+set TARGET_DIR="%CD%\extracted"
 
 pushd downloads
 

@@ -4,10 +4,10 @@ echo.
 echo == Copy
 echo.
 
-set ZIP="..\build-tools\7zip\7z.exe"
-set EXTRACTED_DIR="..\extracted"
-set TARGET_DIR="..\repackage"
-set LIBS="..\libs\"
+set ZIP="%CD%\build-tools\7zip\7z.exe"
+set EXTRACTED_DIR="%CD%\extracted"
+set TARGET_DIR="%CD%\repackage"
+set LIBS="%CD%\libs\"
 
 echo.
 echo === Prepare repackaging folder %TARGET_DIR%
