@@ -90,62 +90,54 @@ Name: "german";  MessagesFile: "compiler:Languages\German.isl"
 ; The user gets a drop-down list to select one of these types.
 ; Selecting a type will selected a set of components.
 [Types]
-Name: "full-python2";               Description: "Full installation Python 2(build-tools, engine, dependencies, demos)"
-Name: "full-python3";               Description: "Full installation Python 3(build-tools, engine, dependencies, demos)"
+Name: "full-python3";               Description: "Full installation Python 3 (build-tools, engine, dependencies, demos)"
 Name: "build-tools-python2";        Description: "Build-tools only (CMake, Boost, Swig)"
 Name: "build-tools-python3";        Description: "Build-tools only (CMake, Boost, Swig)"
-Name: "fife-only-python2";          Description: "Engine only Python 2 Version"
-Name: "fife-only-python3";          Description: "Engine only Python 3 Version"
+Name: "fife-only-python3";          Description: "Engine (Python 3 Version)"
 Name: "fife-python-demos";          Description: "Engine and Demos (demos)"
 Name: "mapeditor";                  Description: "Fife Mapeditor (tools)"
-Name: "fifengine-python-tutorials"; Description: "Fife Engine Python Tutorials (tutorials)"
-;Name: "fifengine-c++-tutorials";   Description: "Fife Engine C++ Tutorials (tutorials)"
-;Name: "fifengine-atlas-creator";   Description: "Fife Engine Atlas Creator (tools)"
+Name: "fife-py-tutorials";          Description: "Fife Engine Python Tutorials (tutorials)"
+;Name: "fife-c++-tutorials";        Description: "Fife Engine C++ Tutorials (tutorials)"
+;Name: "fife-atlas-creator";        Description: "Fife Engine Atlas Creator (tools)"
 ;Name: "docs";                      Description: "Fife User and Developer Manuals (doc)"
 Name: "custom";                     Description: "Custom installation"; Flags: iscustom
 
 ; Define components to install
 [Components]
-Name: "Fifengine";                  Description: "[fifengine] Fifengine - Isometric Game Engine";
-Name: fifengine\py27;               Description: "[fifengine] Fifengine - Isometric Game Engine Python 2.7";    Types: full-python2 fife-only-python2
-Name: fifengine\py36;               Description: "[fifengine] Fifengine - Isometric Game Engine Python 3.6";    Types: full-python3 fife-only-python3
-Name: dependencies;                 Description: "[fifengine] Dependencies";                                    Types: full-python2 full-python3
-;Name: docs;                        Description: "[manuals] Fifengine - Documentations";                        Types: full-python2 full-python3 fife-only-python2 fife-only-python3
-Name: mapeditor;                    Description: "[dev tools] Fifengine - Mapeditor";                           Types: full-python2 mapeditor
-Name: demos;                        Description: "[fifengine] Demos";                                           Types: full-python2 fife-python-demos
-Name: tutorials;                    Description: "[tutorials] Tutorials";                                       Types: full-python2 fifengine-python-tutorials
-;Name: tutorials;                   Description: "[tutorials] Tutorials";                                       Types: full-python2 fifengine-python-tutorials fifengine-c++-tutorials
-;Name: atlascreator                 Description: "[dev tools] Fifengine - Atlas Creator";                       Types: full-python2 fifengine-atlas-creator
-Name: cmake;                        Description: "[build tools] CMake - build system";                          Types: full-python2 full-python3 build-tools-python2 build-tools-python3
-;Name: "Python";                     Description: "[build tools] Python - programming language";
-;Name: "Python\py27";                Description: "[build tools] Python v2.7";                                   Types: full-python2 build-tools-python2
-;Name: "Python\py36";                Description: "[build tools] Python v3.6";                                   Types: full-python3 build-tools-python3
-Name: swig;                         Description: "[build tools] SWIG - interface generator";                    Types: full-python2 full-python3 build-tools-python2 build-tools-python3
-;Name: vcredist2015;                 Description: "[dep libs] VCRedist2015";                                     Types: full-python2 full-python3 build-tools-python2 build-tools-python3
+Name: "Fifengine";          Description: "[fifengine] Fifengine - Isometric Game Engine";
+Name: fifengine\py36;       Description: "[fifengine] Fifengine - Isometric Game Engine Python 3.7"; Types: full-python3 fife-only-python3
+Name: dependencies;         Description: "[fifengine] Dependencies";                                 Types: full-python3
+;Name: docs;                Description: "[manuals] Fifengine - Documentations";                     Types: full-python3 fife-only-python3
+Name: mapeditor;            Description: "[dev tools] Fifengine - Mapeditor";                        Types: mapeditor
+Name: demos;                Description: "[fifengine] Demos";                                        Types: fife-py-demos
+Name: tutorials;            Description: "[tutorials] Tutorials";                                    Types: fife-py-tutorials
+;Name: tutorials;           Description: "[tutorials] Tutorials";                                    Types: fife-py-tutorials fife-c++-tutorials
+;Name: atlascreator         Description: "[dev tools] Fifengine - Atlas Creator";                    Types: fife-atlas-creator
+Name: cmake;                Description: "[build tools] CMake - build system";                       Types: full-python3 build-tools-python3
+;Name: "Python";            Description: "[build tools] Python - programming language";
+;Name: "Python\py37";       Description: "[build tools] Python v3.7";                                Types: full-python3 build-tools-python3
+Name: swig;                 Description: "[build tools] SWIG - interface generator";                 Types: full-python3 build-tools-python3
+;Name: vcredist2015;        Description: "[dep libs] VCRedist2015";                                  Types: full-python3 build-tools-python3
 
 [Files]
 Source: "..\repackage\fifengine-includes\*";    DestDir: "{app}\fifengine-dependencies";Flags: recursesubdirs ignoreversion; Components: dependencies
 Source: "..\repackage\cmake\*";                 DestDir: "{app}\cmake";                 Flags: recursesubdirs ignoreversion; Components: cmake
 Source: "..\repackage\swig\*";                  DestDir: "{app}\swig";                  Flags: recursesubdirs ignoreversion; Components: swig
-;Source: "..\repackage\Python27\*";              DestDir: "{app}\python27";              Flags: recursesubdirs ignoreversion; Components: "Python\py27"
-;Source: "..\repackage\Python36\*";              DestDir: "{app}\python36";              Flags: recursesubdirs ignoreversion; Components: "Python\py36"
+;Source: "..\repackage\Python37\*";             DestDir: "{app}\python37";              Flags: recursesubdirs ignoreversion; Components: "Python\py36"
 ; Fifengine below Python, because we are installing the python library into the Python installation folder
-Source: "..\repackage\libfife.win32-py2.7.msi"; DestDir: "{app}\libfife27";             Flags: recursesubdirs;               Components: fifengine\py27
-Source: "..\repackage\libfife.win32-py3.6.msi"; DestDir: "{app}\libfife36";             Flags: recursesubdirs;               Components: fifengine\py36
+Source: "..\repackage\libfife.win32-py3.7.msi"; DestDir: "{app}\libfife37";             Flags: recursesubdirs;               Components: fifengine\py37
 Source: "..\repackage\mapeditor\*";             DestDir: "{app}\mapeditor";             Flags: recursesubdirs ignoreversion; Components: mapeditor
 Source: "..\repackage\python-demos\*";          DestDir: "{app}\python-demos";          Flags: recursesubdirs ignoreversion; Components: demos
 Source: "..\repackage\python-tutorials\*";      DestDir: "{app}\python-tutorials";      Flags: recursesubdirs ignoreversion; Components: tutorials
 ;Source: "..\repackage\fife-c++-tutorials\*";   DestDir: "{app}\cpp-tutorials";         Flags: recursesubdirs ignoreversion; Components: tutorials
 ;Source: "..\repackage\atlas-creator\*";        DestDir: "{app}\image-atlas-creator";   Flags: recursesubdirs ignoreversion; Components: atlascreator
 ;Source: "..\repackage\docs\*";                 DestDir: "{app}\docs";                  Flags: recursesubdirs ignoreversion; Components: docs
-;Source: "..\repackage\vc_redist.x86.exe";       DestDir: "{tmp}";                       Flags: deleteafterinstall;           Components: Python\py27 and Python\py36 and fifengine\py27 and fifengine\py36 and dependencies
+;Source: "..\repackage\vc_redist.x86.exe";      DestDir: "{tmp}";                       Flags: deleteafterinstall;           Components: Python\py36 and fifengine\py36 and dependencies
 
 ; Define items to run automatically on installation...
 [Run]
-; install "libfife for python2.7" only when "py27 and fifengine" are selected + install silently into the target dir
-Filename: "msiexec.exe"; Parameters: "/i ""{app}\libfife\libfife.win32-py2.7.msi"" TARGETDIR=""{app}\python"" /qn"; StatusMsg: "Installing libFife for Python2.7"; Components: fifengine\py27
-; install "libfife for python3.6" only when "py36 and fifengine" are selected + install silently into the target dir
-Filename: "msiexec.exe"; Parameters: "/i ""{app}\libfife\libfife.win32-py3.6.msi"" TARGETDIR=""{app}\python"" /qn"; StatusMsg: "Installing libFife for Python3.6"; Components: fifengine\py36
+; install "libfife for python3.7" only when "py37 and fifengine" are selected + install silently into the target dir
+Filename: "msiexec.exe"; Parameters: "/i ""{app}\libfife\libfife.win32-py3.7.msi"" TARGETDIR=""{app}\python"" /qn"; StatusMsg: "Installing libFife for Python3.7"; Components: fifengine\py36
 ; add the Parameters, WorkingDir and StatusMsg as you wish, just keep here
 ; the conditional installation Check
 ;Filename: "{tmp}\vc_redist.x86.exe"; Parameters: "/q /norestart"; Check: VCRedistNeedsInstall; StatusMsg: "Installing VC++ redistributables..."
@@ -153,25 +145,21 @@ Filename: "msiexec.exe"; Parameters: "/i ""{app}\libfife\libfife.win32-py3.6.msi
 ; Define items to run automatically on un-installation...
 [UninstallRun]
 ; un-install "libfife"
-Filename: "msiexec.exe"; Parameters: "/x ""{app}\libfife\libfife.win32-py2.7.msi"" /qn"; StatusMsg: "Uninstalling libFife for Python 2.7"; Flags: runascurrentuser runhidden
-Filename: "msiexec.exe"; Parameters: "/x ""{app}\libfife\libfife.win32-py3.6.msi"" /qn"; StatusMsg: "Uninstalling libFife for Python 3.6"; Flags: runascurrentuser runhidden
+Filename: "msiexec.exe"; Parameters: "/x ""{app}\libfife\libfife.win32-py3.7.msi"" /qn"; StatusMsg: "Uninstalling libFife for Python 3.7"; Flags: runascurrentuser runhidden
 
 [UninstallDelete]
 Type: filesandordirs; Name: "{app}\mapeditor"
 Type: filesandordirs; Name: "{app}\python-demos"
 Type: filesandordirs; Name: "{app}\python-tutorials"
-Type: filesandordirs; Name: "{app}\python27"
 Type: filesandordirs; Name: "{app}\python36"
 
 [Registry]
 ; A registry change needs the following directive: [SETUP] ChangesEnvironment=yes
 ;
 ; add path to Python
-;Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python27"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python27')); Components: Python\py27
-;Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python36"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python36')); Components: Python\py36
+;Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python37"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python36')); Components: Python\py37
 ;
 ; add path to libfife
-;Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python27\Lib\site-packages\fife"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python27\Lib\site-packages\fife')); Components: fifengine\py27
 ;Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python36\Lib\site-packages\fife"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python36\Lib\site-packages\fife')); Components: fifengine\py36
 ;
 ; Create File Association
@@ -196,8 +184,6 @@ begin
   // 2. remove paths from the env var PATH 
   if (CurUninstallStep = usPostUninstall) then
   begin
-    RemovePathLocalUser(ExpandConstant('{app}') + '\python27\Lib\site-packages\fife');
-    RemovePathLocalUser(ExpandConstant('{app}') + '\python27');
     RemovePathLocalUser(ExpandConstant('{app}') + '\python36\Lib\site-packages\fife');
     RemovePathLocalUser(ExpandConstant('{app}') + '\python36');
     // 3. refresh environment, so that the modified PATH var is activated

@@ -27,20 +27,12 @@ move "%EXTRACTED_DIR%\cmake" "%TARGET_DIR%"
 echo Swig
 move "%EXTRACTED_DIR%\swig" "%TARGET_DIR%"
 
-echo Python27
-rem include Python 2.7 from Appveyor
-xcopy /SIQY C:\Python27 "%TARGET_DIR%\Python27"
-
-echo Python27.dll
-rem add the mising python27.dll to the python folder
-copy C:\Windows\SysWOW64\python27.dll "%TARGET_DIR%\Python27"
-
 echo Copy needed dlls installer
 copy "%LIBS%\vc_redist.x86.exe" "%TARGET_DIR%"
 
-echo Python36
-rem include Python 3.6 from Appveyor
-xcopy /SIQY C:\Python36 "%TARGET_DIR%\Python36"
+echo Python37
+rem include Python 3.7 from Appveyor
+xcopy /SIQY C:\Python37 "%TARGET_DIR%\Python36"
 
 rem echo TDM-GCC-MINGW
 rem move "%EXTRACTED_DIR%\mingw" "%TARGET_DIR%"
@@ -52,11 +44,8 @@ echo.
 echo Fifengine Dependencies
 move "%EXTRACTED_DIR%\fifengine-includes" "%TARGET_DIR%"
 
-echo Fifengine Python27 Installer
-move "%EXTRACTED_DIR%\libfife.win32-py2.7.msi" "%TARGET_DIR%"
-
 echo Fifengine Python36 Installer
-move "%EXTRACTED_DIR%\libfife.win32-py3.6.msi" "%TARGET_DIR%"
+move "%EXTRACTED_DIR%\libfife.win32-py3.7.msi" "%TARGET_DIR%"
 
 echo Fifengine Mapeditor
 move "%EXTRACTED_DIR%\fife-editor-cegui-master" "%TARGET_DIR%\mapeditor"

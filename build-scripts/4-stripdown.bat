@@ -21,17 +21,10 @@ rd /s /q "..\repackage\swig\Doc"
 rd /s /q "..\repackage\swig\Examples"
 
 echo.
-echo Python27
-rd /s /q "..\repackage\Python27\Doc"
-rd /s /q "..\repackage\Python27\tcl"
-rd /s /q "..\repackage\Python27\Scripts"
-rd /s /q "..\repackage\Python27\Tools"
-rm       "..\repackage\Python27\NEWS.txt"
-rm       "..\repackage\Python27\w9xpopen.exe"
-
-echo.
-echo Python36
+echo Python37
 rd /s /q "..\repackage\Python36\Doc"
 rd /s /q "..\repackage\Python36\tcl"
+rd /s /q "..\repackage\Python27\Scripts"
+rd /s /q "..\repackage\Python27\Tools"
 
 popd

@@ -18,16 +18,6 @@ http://prdownloads.sourceforge.net/swig/swigwin-3.0.12.zip
     dir=downloads
     out=swig.zip
 
-# ActivePython 2.7
-#http://downloads.activestate.com/ActivePython/releases/2.7.10.12/ActivePython-2.7.10.12-win32-x86.zip
-#    dir=downloads
-#    out=ActivePython.zip
-
-# Python 2.7
-#https://www.python.org/ftp/python/2.7.15/python-2.7.15.msi
-#    dir=downloads
-#    out=Python27.zip
-
 # Python 3.6
 #https://www.python.org/ftp/python/3.6.8/python-3.6.8.exe
 #    dir=downloads
