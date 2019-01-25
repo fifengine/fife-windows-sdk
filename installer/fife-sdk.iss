@@ -27,7 +27,7 @@
 #endif
 
 #define APP_NAME             "FifeSDK"
-#define APP_COMPILER         "VC14"
+#define APP_COMPILER         "VC15"
 #define APP_PUBLISHER        "FIFE Team"
 #define APP_URL              "http://fifengine.net/"
 #define APP_SUPPORT_URL      "https://github.com/fifengine/fifengine/issues"
@@ -112,25 +112,25 @@ Name: demos;                Description: "[fifengine] Demos";                   
 Name: tutorials;            Description: "[tutorials] Tutorials";                                    Types: fife-py-tutorials
 ;Name: tutorials;           Description: "[tutorials] Tutorials";                                    Types: fife-py-tutorials fife-c++-tutorials
 ;Name: atlascreator         Description: "[dev tools] Fifengine - Atlas Creator";                    Types: fife-atlas-creator
-Name: cmake;                Description: "[build tools] CMake - build system";                       Types: full-python3 build-tools-python3
+Name: cmake;                Description: "[build tools] CMake - build system";                       Types: full-py3 build-tools-py3
 ;Name: "Python";            Description: "[build tools] Python - programming language";
-;Name: "Python\py37";       Description: "[build tools] Python v3.7";                                Types: full-python3 build-tools-python3
-Name: swig;                 Description: "[build tools] SWIG - interface generator";                 Types: full-python3 build-tools-python3
-;Name: vcredist2015;        Description: "[dep libs] VCRedist2015";                                  Types: full-python3 build-tools-python3
+;Name: "Python\py37";       Description: "[build tools] Python v3.7";                                Types: full-py3 build-tools-py3
+Name: swig;                 Description: "[build tools] SWIG - interface generator";                 Types: full-py3 build-tools-py3
+;Name: vcredist2015;        Description: "[dep libs] VCRedist2015";                                  Types: full-py3 build-tools-py3
 
 [Files]
-Source: "..\repackage\fifengine-includes\*";    DestDir: "{app}\fifengine-dependencies";Flags: recursesubdirs ignoreversion; Components: dependencies
-Source: "..\repackage\cmake\*";                 DestDir: "{app}\cmake";                 Flags: recursesubdirs ignoreversion; Components: cmake
-Source: "..\repackage\swig\*";                  DestDir: "{app}\swig";                  Flags: recursesubdirs ignoreversion; Components: swig
+Source: "..\repackage\fifengine-includes\*";  DestDir: "{app}\fifengine-dependencies";  Flags: recursesubdirs ignoreversion; Components: dependencies
+Source: "..\repackage\cmake\*";               DestDir: "{app}\cmake";               Flags: recursesubdirs ignoreversion; Components: cmake
+Source: "..\repackage\swig\*";                DestDir: "{app}\swig";                Flags: recursesubdirs ignoreversion; Components: swig
 ;Source: "..\repackage\Python37\*";             DestDir: "{app}\python37";              Flags: recursesubdirs ignoreversion; Components: "Python\py37"
-; Fifengine below Python, because we are installing the python library into the Python installation folder
-Source: "..\repackage\libfife.win32-py3.7.msi"; DestDir: "{app}\libfife37";             Flags: recursesubdirs;               Components: fifengine\py37
-Source: "..\repackage\mapeditor\*";             DestDir: "{app}\mapeditor";             Flags: recursesubdirs ignoreversion; Components: mapeditor
-Source: "..\repackage\python-demos\*";          DestDir: "{app}\python-demos";          Flags: recursesubdirs ignoreversion; Components: demos
-Source: "..\repackage\python-tutorials\*";      DestDir: "{app}\python-tutorials";      Flags: recursesubdirs ignoreversion; Components: tutorials
-;Source: "..\repackage\fife-c++-tutorials\*";   DestDir: "{app}\cpp-tutorials";         Flags: recursesubdirs ignoreversion; Components: tutorials
-;Source: "..\repackage\atlas-creator\*";        DestDir: "{app}\image-atlas-creator";   Flags: recursesubdirs ignoreversion; Components: atlascreator
-;Source: "..\repackage\docs\*";                 DestDir: "{app}\docs";                  Flags: recursesubdirs ignoreversion; Components: docs
+; Fifengine after Python, because we are installing the fife python library into the Python installation folder
+Source: "..\repackage\libfife.win32-py3.7.msi"; DestDir: "{app}\libfife37";         Flags: recursesubdirs;               Components: fifengine\py37
+Source: "..\repackage\mapeditor\*";           DestDir: "{app}\mapeditor";           Flags: recursesubdirs ignoreversion; Components: mapeditor
+Source: "..\repackage\python-demos\*";        DestDir: "{app}\python-demos";        Flags: recursesubdirs ignoreversion; Components: demos
+Source: "..\repackage\python-tutorials\*";    DestDir: "{app}\python-tutorials";    Flags: recursesubdirs ignoreversion; Components: tutorials
+;Source: "..\repackage\fife-c++-tutorials\*"; DestDir: "{app}\cpp-tutorials";       Flags: recursesubdirs ignoreversion; Components: tutorials
+;Source: "..\repackage\atlas-creator\*";      DestDir: "{app}\image-atlas-creator"; Flags: recursesubdirs ignoreversion; Components: atlascreator
+;Source: "..\repackage\docs\*";               DestDir: "{app}\docs";                Flags: recursesubdirs ignoreversion; Components: docs
 ;Source: "..\repackage\vc_redist.x86.exe";      DestDir: "{tmp}";                       Flags: deleteafterinstall;           Components: Python\py37 and fifengine\py37 and dependencies
 
 ; Define items to run automatically on installation...
@@ -156,7 +156,7 @@ Type: filesandordirs; Name: "{app}\python37"
 ; A registry change needs the following directive: [SETUP] ChangesEnvironment=yes
 ;
 ; add path to Python
-;Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python37"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python36')); Components: Python\py37
+;Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python37"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python37')); Components: Python\py37
 ;
 ; add path to libfife
 ;Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python37\Lib\site-packages\fife"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python37\Lib\site-packages\fife')); Components: fifengine\py37
