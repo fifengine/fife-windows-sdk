@@ -90,10 +90,10 @@ Name: "german";  MessagesFile: "compiler:Languages\German.isl"
 ; The user gets a drop-down list to select one of these types.
 ; Selecting a type will selected a set of components.
 [Types]
-Name: "full-python3";               Description: "Full installation Python 3 (build-tools, engine, dependencies, demos)"
-Name: "build-tools-python3";        Description: "Build-tools only (CMake, Boost, Swig)"
-Name: "fife-only-python3";          Description: "Engine (Python 3 Version)"
-Name: "fife-python-demos";          Description: "Engine and Demos (demos)"
+Name: "full-py3";                   Description: "Full installation Python 3 (build-tools, engine, dependencies, demos)"
+Name: "build-tools-py3";            Description: "Build-tools only (CMake, Boost, Swig)"
+Name: "fife-only-py3";              Description: "Engine (Python 3 Version)"
+Name: "fife-py-demos";              Description: "Engine and Demos (demos)"
 Name: "mapeditor";                  Description: "Fife Mapeditor (tools)"
 Name: "fife-py-tutorials";          Description: "Fife Engine Python Tutorials (tutorials)"
 ;Name: "fife-c++-tutorials";        Description: "Fife Engine C++ Tutorials (tutorials)"
@@ -104,8 +104,8 @@ Name: "custom";                     Description: "Custom installation"; Flags: i
 ; Define components to install
 [Components]
 Name: "Fifengine";          Description: "[fifengine] Fifengine - Isometric Game Engine";
-Name: fifengine\py37;       Description: "[fifengine] Fifengine - Isometric Game Engine Python 3.7"; Types: full-python3 fife-only-python3
-Name: dependencies;         Description: "[fifengine] Dependencies";                                 Types: full-python3
+Name: fifengine\py37;       Description: "[fifengine] Fifengine - Isometric Game Engine Python 3.7"; Types: full-py3 fife-only-py3
+Name: dependencies;         Description: "[fifengine] Dependencies";                                 Types: full-py3
 ;Name: docs;                Description: "[manuals] Fifengine - Documentations";                     Types: full-python3 fife-only-python3
 Name: mapeditor;            Description: "[dev tools] Fifengine - Mapeditor";                        Types: mapeditor
 Name: demos;                Description: "[fifengine] Demos";                                        Types: fife-py-demos
