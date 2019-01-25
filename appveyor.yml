@@ -1,12 +1,6 @@
 # version format
 version: 0.4.2.{build}
 
-# cache the "downloads" folder in the build folder
-# refresh cache, if appveyor.yml changes
-# trigger cache refresh line: x
-#cache:
-#  - downloads -> appveyor.yml
-
 # scripts that are called at very beginning, before repo cloning
 init:
   - date /T & time /T
@@ -14,8 +8,7 @@ init:
 
 install:
   # Upgrade to the latest version of pip to avoid "out of date" warnings
-  # Python 3.7
-  - C:\python37\python.exe -m pip install --disable-pip-version-check --user --upgrade pip
+  - C:\python37\python.exe -m pip install --upgrade pip
   - C:\python37\scripts\pip.exe install future
 
 before_build: 
