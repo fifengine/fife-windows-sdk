@@ -22,9 +22,7 @@ rd /s /q "..\repackage\swig\Examples"
 
 echo.
 echo Python37
-rd /s /q "..\repackage\Python36\Doc"
-rd /s /q "..\repackage\Python36\tcl"
-rd /s /q "..\repackage\Python27\Scripts"
-rd /s /q "..\repackage\Python27\Tools"
+rd /s /q "..\repackage\Python37\Doc"
+rd /s /q "..\repackage\Python37\tcl"
 
 popd

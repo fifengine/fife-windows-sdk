@@ -44,7 +44,7 @@ echo.
 echo Fifengine Dependencies
 move "%EXTRACTED_DIR%\fifengine-includes" "%TARGET_DIR%"
 
-echo Fifengine Python36 Installer
+echo Fifengine Python37 Installer
 move "%EXTRACTED_DIR%\libfife.win32-py3.7.msi" "%TARGET_DIR%"
 
 echo Fifengine Mapeditor

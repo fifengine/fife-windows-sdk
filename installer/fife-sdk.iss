@@ -91,7 +91,6 @@ Name: "german";  MessagesFile: "compiler:Languages\German.isl"
 ; Selecting a type will selected a set of components.
 [Types]
 Name: "full-python3";               Description: "Full installation Python 3 (build-tools, engine, dependencies, demos)"
-Name: "build-tools-python2";        Description: "Build-tools only (CMake, Boost, Swig)"
 Name: "build-tools-python3";        Description: "Build-tools only (CMake, Boost, Swig)"
 Name: "fife-only-python3";          Description: "Engine (Python 3 Version)"
 Name: "fife-python-demos";          Description: "Engine and Demos (demos)"
@@ -105,7 +104,7 @@ Name: "custom";                     Description: "Custom installation"; Flags: i
 ; Define components to install
 [Components]
 Name: "Fifengine";          Description: "[fifengine] Fifengine - Isometric Game Engine";
-Name: fifengine\py36;       Description: "[fifengine] Fifengine - Isometric Game Engine Python 3.7"; Types: full-python3 fife-only-python3
+Name: fifengine\py37;       Description: "[fifengine] Fifengine - Isometric Game Engine Python 3.7"; Types: full-python3 fife-only-python3
 Name: dependencies;         Description: "[fifengine] Dependencies";                                 Types: full-python3
 ;Name: docs;                Description: "[manuals] Fifengine - Documentations";                     Types: full-python3 fife-only-python3
 Name: mapeditor;            Description: "[dev tools] Fifengine - Mapeditor";                        Types: mapeditor
@@ -123,7 +122,7 @@ Name: swig;                 Description: "[build tools] SWIG - interface generat
 Source: "..\repackage\fifengine-includes\*";    DestDir: "{app}\fifengine-dependencies";Flags: recursesubdirs ignoreversion; Components: dependencies
 Source: "..\repackage\cmake\*";                 DestDir: "{app}\cmake";                 Flags: recursesubdirs ignoreversion; Components: cmake
 Source: "..\repackage\swig\*";                  DestDir: "{app}\swig";                  Flags: recursesubdirs ignoreversion; Components: swig
-;Source: "..\repackage\Python37\*";             DestDir: "{app}\python37";              Flags: recursesubdirs ignoreversion; Components: "Python\py36"
+;Source: "..\repackage\Python37\*";             DestDir: "{app}\python37";              Flags: recursesubdirs ignoreversion; Components: "Python\py37"
 ; Fifengine below Python, because we are installing the python library into the Python installation folder
 Source: "..\repackage\libfife.win32-py3.7.msi"; DestDir: "{app}\libfife37";             Flags: recursesubdirs;               Components: fifengine\py37
 Source: "..\repackage\mapeditor\*";             DestDir: "{app}\mapeditor";             Flags: recursesubdirs ignoreversion; Components: mapeditor
@@ -132,12 +131,12 @@ Source: "..\repackage\python-tutorials\*";      DestDir: "{app}\python-tutorials
 ;Source: "..\repackage\fife-c++-tutorials\*";   DestDir: "{app}\cpp-tutorials";         Flags: recursesubdirs ignoreversion; Components: tutorials
 ;Source: "..\repackage\atlas-creator\*";        DestDir: "{app}\image-atlas-creator";   Flags: recursesubdirs ignoreversion; Components: atlascreator
 ;Source: "..\repackage\docs\*";                 DestDir: "{app}\docs";                  Flags: recursesubdirs ignoreversion; Components: docs
-;Source: "..\repackage\vc_redist.x86.exe";      DestDir: "{tmp}";                       Flags: deleteafterinstall;           Components: Python\py36 and fifengine\py36 and dependencies
+;Source: "..\repackage\vc_redist.x86.exe";      DestDir: "{tmp}";                       Flags: deleteafterinstall;           Components: Python\py37 and fifengine\py37 and dependencies
 
 ; Define items to run automatically on installation...
 [Run]
 ; install "libfife for python3.7" only when "py37 and fifengine" are selected + install silently into the target dir
-Filename: "msiexec.exe"; Parameters: "/i ""{app}\libfife\libfife.win32-py3.7.msi"" TARGETDIR=""{app}\python"" /qn"; StatusMsg: "Installing libFife for Python3.7"; Components: fifengine\py36
+Filename: "msiexec.exe"; Parameters: "/i ""{app}\libfife\libfife.win32-py3.7.msi"" TARGETDIR=""{app}\python"" /qn"; StatusMsg: "Installing libFife for Python3.7"; Components: fifengine\py37
 ; add the Parameters, WorkingDir and StatusMsg as you wish, just keep here
 ; the conditional installation Check
 ;Filename: "{tmp}\vc_redist.x86.exe"; Parameters: "/q /norestart"; Check: VCRedistNeedsInstall; StatusMsg: "Installing VC++ redistributables..."
@@ -151,7 +150,7 @@ Filename: "msiexec.exe"; Parameters: "/x ""{app}\libfife\libfife.win32-py3.7.msi
 Type: filesandordirs; Name: "{app}\mapeditor"
 Type: filesandordirs; Name: "{app}\python-demos"
 Type: filesandordirs; Name: "{app}\python-tutorials"
-Type: filesandordirs; Name: "{app}\python36"
+Type: filesandordirs; Name: "{app}\python37"
 
 [Registry]
 ; A registry change needs the following directive: [SETUP] ChangesEnvironment=yes
@@ -160,14 +159,13 @@ Type: filesandordirs; Name: "{app}\python36"
 ;Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python37"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python36')); Components: Python\py37
 ;
 ; add path to libfife
-;Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python36\Lib\site-packages\fife"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python36\Lib\site-packages\fife')); Components: fifengine\py36
+;Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"PATH"; ValueData:"{olddata};{app}\python37\Lib\site-packages\fife"; Flags: preservestringtype; Check: NeedsAddPathLocalUser(ExpandConstant('{app}\python37\Lib\site-packages\fife')); Components: fifengine\py37
 ;
 ; Create File Association
 ;Root: HKCR; Subkey: ".py";                            ValueType: string; ValueName: ""; ValueData: "Python.File"; Flags: uninsdeletevalue 
 ;Root: HKCR; Subkey: "Python.File";                    ValueType: string; ValueName: ""; ValueData: "Python File"; Flags: uninsdeletekey
 ;Root: HKCR; Subkey: "Python.File\DefaultIcon";        ValueType: string; ValueName: ""; ValueData: "{app}\python\DLLs\py.ico"
-;Root: HKCR; Subkey: "Python.File\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\python27\python.exe"" ""%1"" %*" ; Components: fifengine\py27
-;Root: HKCR; Subkey: "Python.File\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\python36\python.exe"" ""%1"" %*" ; Components: fifengine\py36
+;Root: HKCR; Subkey: "Python.File\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\python37\python.exe"" ""%1"" %*" ; Components: fifengine\py37
    
 [Code]
 // modification and path lookup helper for env PATH 
@@ -184,8 +182,8 @@ begin
   // 2. remove paths from the env var PATH 
   if (CurUninstallStep = usPostUninstall) then
   begin
-    RemovePathLocalUser(ExpandConstant('{app}') + '\python36\Lib\site-packages\fife');
-    RemovePathLocalUser(ExpandConstant('{app}') + '\python36');
+    RemovePathLocalUser(ExpandConstant('{app}') + '\python37\Lib\site-packages\fife');
+    RemovePathLocalUser(ExpandConstant('{app}') + '\python37');
     // 3. refresh environment, so that the modified PATH var is activated
     RefreshEnvironment();
   end;

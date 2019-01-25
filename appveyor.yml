@@ -14,12 +14,9 @@ init:
 
 install:
   # Upgrade to the latest version of pip to avoid "out of date" warnings
-  # Python 3.6
-  - C:\python36\python.exe -m pip install --disable-pip-version-check --user --upgrade pip
-  - C:\python36\scripts\pip.exe install future
-  # Python 2.7
-  - C:\python27\python.exe -m pip install --disable-pip-version-check --user --upgrade pip
-  - C:\python27\scripts\pip.exe install future
+  # Python 3.7
+  - C:\python37\python.exe -m pip install --disable-pip-version-check --user --upgrade pip
+  - C:\python37\scripts\pip.exe install future
 
 before_build: 
   # download

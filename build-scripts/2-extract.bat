@@ -39,8 +39,8 @@ echo Fifengine Dependencies
 %ZIP% x libfife-dependencies.zip -o..\extracted\fifengine-includes > nul
 
 echo.
-echo Fifengine Python36 Installer
-copy libfife.win32-py3.6.msi "%TARGET_DIR%\libfife.win32-py3.6.msi"
+echo Fifengine Python37 Installer
+copy libfife.win32-py3.7.msi "%TARGET_DIR%\libfife.win32-py3.7.msi"
 
 echo.
 echo Fifengine Mapeditor
